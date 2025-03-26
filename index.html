@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png">
+            <h1>WEATHER<br>FORECAST</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="./Weatherupdates.html">WEATHER UPDATES</a></li>
+                <li><a href="./about.html">ABOUT</a></li>
+                <li><a href="./login.html">LOGIN</a></li>
+                </ul>
+            <img src="images/icons8-menu-32.png" alt="" srcset="" onclick="menubar()">
+        </nav>
+    </header>
+
+    <div class="slider">
+        <div class="slide-contain">
+        <div class="container" style="
+    background-image: url(images/tokyo1.webp);">
+            <div class="information">
+                <h2 id="City">TOKYO</h2>
+                <p>Tokyo has a humid subtropical climate and four distinct seasons. The summer months (June to August) are hot and sticky due to an unpleasant level of humidity, while winters (December to February) can get fairly cold
+                </p>
+                <button class="btn">Get Started</button>
+            </div>
+
+            <div class="weatherdetails">
+                <div class="detail">
+                    <img src="images/thermometer.png" alt="">
+                    <h1>Temperature</h1>
+                    <h3 id="temp1">30°C</h3>
+                </div>
+                <div class="detail">
+                    <img src="images/humidity.png" alt="">
+                    <h1>Humidity</h1>
+                    <h3 id="humidity1">40%</h3>
+                </div>
+                <div class="detail" style="margin-top: 4vw;">
+                    <img src="images/windy.png" alt="">
+                    <h1>Wind Speed</h1>
+                    <h3 id="speed1">20kmph</h3>
+                </div>
+                <div class="detail" style="margin-top: 4vw;">
+                    <img src="images/airpressure.png" alt="">
+                    <h1>Air pressure</h1>
+                    <h3 id="pressure1">0</h3>
+                </div>
+            </div> 
+        </div>
+
+        <div class="container" style="
+    background-image: url(images/mumbai.webp);">
+            <div class="information">
+                <h2 id="City">MUMBAI</h2>
+                <p>Tokyo has a humid subtropical climate and four distinct seasons. The summer months (June to August) are hot and sticky due to an unpleasant level of humidity, while winters (December to February) can get fairly cold
+                </p>
+                <button class="btn">Get Started</button>
+            </div> 
+
+            <div class="weatherdetails">
+                <div class="detail">
+                    <img src="images/thermometer.png" alt="">
+                    <h1>Temperature</h1>
+                    <h3 id="temp2">30°C</h3>
+                </div>
+                <div class="detail">
+                    <img src="images/humidity.png" alt="">
+                    <h1>Humidity</h1>
+                    <h3 id="humidity2">40%</h3>
+                </div>
+                <div class="detail" style="margin-top: 4vw;">
+                    <img src="images/windy.png" alt="">
+                    <h1>Wind Speed</h1>
+                    <h3 id="speed2">20kmph</h3>
+                </div>
+                <div class="detail" style="margin-top: 4vw;">
+                    <img src="images/airpressure.png" alt="">
+                    <h1>Air pressure</h1>
+                    <h3 id="pressure2">0</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="
+    background-image: url(images/new_york.jpg);">
+            <div class="information">
+                <h2 id="City">CALIFORNIA</h2>
+                <p>Tokyo has a humid subtropical climate and four distinct seasons. The summer months (June to August) are hot and sticky due to an unpleasant level of humidity, while winters (December to February) can get fairly cold
+                </p>
+                <button class="btn">Get Started</button>
+            </div>
+
+            <div class="weatherdetails">
+                <div class="detail">
+                    <img src="images/thermometer.png" alt="">
+                    <h1>Temperature</h1>
+                    <h3 id="temp3">30°C</h3>
+                </div>
+                <div class="detail">
+                    <img src="images/humidity.png" alt="">
+                    <h1>Humidity</h1>
+                    <h3 id="humidity3">40%</h3>
+                </div>
+                <div class="detail" style="margin-top: 4vw;">
+                    <img src="images/windy.png" alt="">
+                    <h1>Wind Speed</h1>
+                    <h3 id="speed3">20kmph</h3>
+                </div>
+                <div class="detail" style="margin-top: 4vw;">
+                    <img src="images/airpressure.png" alt="">
+                    <h1>Air pressure</h1>
+                    <h3 id="pressure3">0</h3>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="position">
+        <div class="left" onclick="previous()"><h1> < </h1></div>
+        <div class="right" onclick="nextt()"><h1>></h1></div>
+    </div>
+
+</div>

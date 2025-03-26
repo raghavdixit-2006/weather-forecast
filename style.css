@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+body{
+    background-color: rgb(249, 254, 255);
+}
+
+
+/* ------INDEX------------*/
+
+
+
+/* -----Navigation Bar------- */
+
+.flexbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    padding: 0 50px;
+    width: 100%;
+    height:80px;
+    /* display: flex;
+    justify-content: space-between; */
+    align-items: center;
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    z-index: 10;
+}
+.logo{
+    display: flex;
+    /* align-items: center; */
+    gap:10px;
+}
+.logo img{
+    width: 50px;
+    height: 50px;
+}
+.logo h1{
+    font-size: 20px;
+    color:white;
+}
+
+nav{
+    width:auto;
+}
+
+nav ul{
+    list-style: none;
+    border-radius: 10px;
+    display: flex;
+    gap:2vmax;
+}
+nav ul li{
+    display: inline-block;
+    padding: 5px 0vmax;
+    position: relative;
+}
+nav ul li::before{
+    content:'';
+    position: absolute;
+    width: 0px;
+    height: 2px;
+    background-color: #FF5656;
+    bottom: 0;
+    left: 0px;
+    border-radius: 20px;
+    transition: .5s;
+}
+nav ul li:hover::before{
+    width: 100%;
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.3vmax;
+    transition: .5s;
+}
+nav ul li:hover a{
+    color: #FF5656;
+}
+
+nav img{
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    transition: 0.5s;
+    position: absolute;
+    margin-top: -15px;
+    padding: 4px;
+    display: none;
+    margin-left: -8vw;
+}
+nav img:hover{
+    background-color: rgba(0,0,0,0.7);
+}
+
+@media (max-width:800px) {
+    nav ul li{
+        display: block;
+    }
+    nav ul{
+        position: absolute;
+        margin-left: -15vmax;
+        text-align: center;
+        margin-top: 20px;
+        backdrop-filter: blur(5px);
+        background-color: rgba(255,255,255,.1);
+        height: auto;
+        width:132px;
+        display: none;
+    }
+    nav ul li a{
+        font-size: 12px;
+    }
+    nav img{
+        display: block;
+    }
+    
+}
+.slider{
+    width: 100%;
+    height:100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.container{
+    width: 100vw;
+    height:100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+.slide-contain{
+    width: 300vw;
+    height:100vh;
+    display: flex;
+    position: absolute;
+    transition: 1s;
+    transition-timing-function: ease-in-out;
+    left: 0;
+}
+.container::before,.updatecontainer::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent,rgba(0,0,0,.8));
+    z-index: -1;
+    animation: glowup .5s linear forwards;
+}
+@keyframes glowup {
+    0%{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.information{
+    width: 50vmax;
+    color:white;
+    padding: 20px;
+    margin-top: 170px;
+    animation: glowup .5s ease-in-out forwards;
+    opacity: 0;
+    animation-delay: 0.5s;
+}
+.information h2{
+    font-size: 5vmax;
+    padding-bottom: 20px;
+}
+
+.information p{
+    font-size: 1.4vmax;
+    text-align: justify;
+}
+button.btn{
+    float:right;
+    width: 200px;
+    height:35px;
+    border-radius: 30px;
+    border: 1px solid white;
+    background-color: rgba(0,0,0,.2);
+    backdrop-filter: blur(10px);
+    color:white;
+    margin-top: 30px;
+    font-size: 20px;
+    transition: .5s;
+}
+button.btn:hover{
+    background-color: #ff3232;
+}
+
+.weatherdetails{
+    /* display: grid;
+    grid-template-columns: 20vw 20vw; */
+    margin-top: 170px;
+    color:white;
+    animation: glowup .5s ease-in-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+.weatherdetails .detail{
+    width: 20vw;
+    height:150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.weatherdetails .detail img{
+    width:5vmax;
+    height: 5vmax;
+    color:white;
+}
+.weatherdetails .detail h1{
+    font-size: 2vmax;
+    margin-top: 5px;
+}
+.weatherdetails .detail h3{
+    font-size: 3vmax;
+    margin-top: 5px;
+}
+.slider .position{
+    position: absolute !important;
+    display: flex;
+    justify-content: space-between;
+    width: 93vw;
+}
+.slider .position div{
+    background-color: rgba(255,255,255,0.3);
+    width:30px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: .5s;
+}
+.slider .position div:hover{
+    background-color: rgba(255,255,255,0.5);
+}
+.slider .position div h1{
+    pointer-events: none;
+}
+
+@media (max-width:800px) {
+    .container{
+        flex-direction: column;
+        gap: 0;
+    }
+    .container .information{
+        margin-top: 70px;
+    }
+    .container .information{
+        width: 80vw;
+    }
+    .container .information p{
+        font-size: 2.2vmax;
+    }
+    .container .weatherdetails{
+        grid-template-columns: 20vw 20vw 20vw 20vw;
+        margin-top: 0;
+
+    }
+    .container .weatherdetails .detail{
+        margin-top: 0 !important;
+    }
+}
