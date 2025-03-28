@@ -264,26 +264,35 @@ button.btn:hover{
     pointer-events: none;
 }
 
-@media (max-width:800px) {
-    .container{
-        flex-direction: column;
-        gap: 0;
-    }
-    .container .information{
-        margin-top: 70px;
-    }
-    .container .information{
-        width: 80vw;
-    }
-    .container .information p{
-        font-size: 2.2vmax;
-    }
-    .container .weatherdetails{
-        grid-template-columns: 20vw 20vw 20vw 20vw;
-        margin-top: 0;
+/* -----About------- */
 
-    }
-    .container .weatherdetails .detail{
-        margin-top: 0 !important;
-    }
+.about-container{
+    width: 100%;
+    height: 100vh;
+    background: url(images/sunnyimage.jpg);
+    background-size: cover;
+    padding: 80px;
+    color: white;
+}
+.about-container .precise{
+    width: 40vw;
+    margin-top: 80px;
+}
+.precise h1{
+    font-size: 4vmax;
+    padding: 20px 0;
+    line-height: 60px;
+}
+.precise h1 span{
+    color:#ffa6a6;
+}
+.precise p{
+    font-size: 2vmax;
+    line-height: 34px;
+}
+.about-container .weather-image{
+    margin-top: 80px;
+}
+.about-container .weather-image img{
+    width: 35vw;
 }
