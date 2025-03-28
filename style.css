@@ -274,6 +274,15 @@ button.btn:hover{
     padding: 80px;
     color: white;
 }
+.about-container .precise{
+    width: 40vw;
+    margin-top: 80px;
+}
+.precise h1{
+    font-size: 4vmax;
+    padding: 20px 0;
+    line-height: 60px;
+}
 .precise h1 span{
     color:#ffa6a6;
 }
@@ -287,4 +296,3 @@ button.btn:hover{
 .about-container .weather-image img{
     width: 35vw;
 }
-
