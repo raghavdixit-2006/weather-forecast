@@ -26,8 +26,8 @@ header{
     padding: 0 50px;
     width: 100%;
     height:80px;
-    /* display: flex;
-    justify-content: space-between; */
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: rgba(0,0,0,.5);
     position: absolute;
@@ -35,7 +35,7 @@ header{
 }
 .logo{
     display: flex;
-    /* align-items: center; */
+    align-items: center;
     gap:10px;
 }
 .logo img{
