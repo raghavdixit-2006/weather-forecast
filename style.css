@@ -421,6 +421,30 @@ button.btn:hover{
 .about-container .weather-image img{
     width: 35vw;
 }
+.Goalsection{
+    width: 100%;
+    height:auto;
+    padding-top: 40px;
+    padding-bottom: 70px;
+    flex-direction: column;
+    font-size: 1.4vmax;
+}
+.ourstory{
+    gap:10vw;
+    padding-top: 50px;
+}
+.ourstory .info{
+    width: 40vw;
+}
+.ourstory .info h1{
+    font-size: 2.4em;
+}
+.ourstory .info p{
+    font-size: 1em;
+    padding-top: 20px;
+    text-align: left;
+}
+
 
 /* -----Weather-update------- */
 
