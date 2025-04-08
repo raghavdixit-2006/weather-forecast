@@ -296,3 +296,15 @@ button.btn:hover{
 .about-container .weather-image img{
     width: 35vw;
 }
+
+/* -----Weather-update------- */
+
+.updatecontainer{
+    width: 100%;
+    min-height: 100vh;
+    background: url(images/loginbackground.jpg);
+    background-size: cover;
+    position: relative;
+    z-index: -4;
+    overflow: hidden;
+}
