@@ -308,3 +308,106 @@ button.btn:hover{
     z-index: -4;
     overflow: hidden;
 }
+
+
+/* ------------login-------*/
+.login-container{
+    width: 100%;
+    height:100vh;
+    background: url(images/yo.gif);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.center{
+    margin-top: 70px;
+    width: 400px;
+    background: rgba(0,0,0,0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+    border: 1px solid white;
+}
+
+.center h1{
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid silver;
+    color: white;
+}
+.center form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+form .txt_field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+.txt_field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+}
+.txt_field input::placeholder{
+    color:white;
+}
+.txt_field span{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+}
+.txt_field:hover span{
+    width: 100%;
+}
+.pass{
+    margin: -5px 0 20px 5px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.pass:hover{
+    text-decoration: underline;
+}
+input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+input[type="submit"]:hover{
+    border-color: #2691d9;
+    transition: .5s;
+}
+.signup_link{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #b8b8b8;
+}
+.signup_link a{
+    color: #2691d9;
+    text-decoration: none;
+}
+.signup_link a:hover{
+    text-decoration: underline;
+}
