@@ -125,6 +125,9 @@ nav img:hover{
     }
     
 }
+
+/* -------Slider Container--------*/
+
 .slider{
     width: 100%;
     height:100vh;
@@ -211,8 +214,8 @@ button.btn:hover{
 }
 
 .weatherdetails{
-    /* display: grid;
-    grid-template-columns: 20vw 20vw; */
+    display: grid;
+    grid-template-columns: 20vw 20vw;
     margin-top: 170px;
     color:white;
     animation: glowup .5s ease-in-out forwards;
@@ -264,7 +267,427 @@ button.btn:hover{
     pointer-events: none;
 }
 
-/* -----About------- */
+@media (max-width:800px) {
+    .container{
+        flex-direction: column;
+        gap: 0;
+    }
+    .container .information{
+        margin-top: 70px;
+    }
+    .container .information{
+        width: 80vw;
+    }
+    .container .information p{
+        font-size: 2.2vmax;
+    }
+    .container .weatherdetails{
+        grid-template-columns: 20vw 20vw 20vw 20vw;
+        margin-top: 0;
+
+    }
+    .container .weatherdetails .detail{
+        margin-top: 0 !important;
+    }
+}
+
+
+
+/* ------ Search Box ---------*/
+
+
+.weather-section{
+    width: 100%;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.template{
+    width: 80%;
+    height:80%;
+    border-radius: 23px;
+    overflow: hidden;
+    position: relative;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 24%;
+}
+
+.box{
+    width: 33%;
+    height: 80vh;
+    background: url(images/sunnyimage.webp);
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 5px 1px 10px black;
+    padding: 0px 5%;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+}
+.searchbox{
+    gap:2%;
+    margin-top:0px;
+    margin-top: 0px;
+    width: 100%;
+}
+.searchbox form{
+    width: 100%;
+}
+.searchbox form input{
+    border: none;
+    width: 100%;
+    height:35px;
+    border-radius: 20px;
+    padding-left: 15px;
+    font-size: 1.2vmax;
+}
+.searchbox div{
+    width: 35px;
+    height: 35px;
+    font-size: 24px;
+    border-radius: 50%;
+    border:1px solid #333;
+    transition: .5s;
+}
+.searchbox div h4{
+    pointer-events: none;
+}
+.searchbox div:hover{
+    background-color: #ff3232;
+}
+.weatherimage{
+    margin-top: 0px;
+    height: 120px;
+}
+.weatherimage img{
+    width:150px;
+    height: auto;
+}
+
+.date h2{
+    color: white;
+    font-size: 20px;
+    font-weight: 200;
+    margin-left: -50%;
+    pointer-events: none;
+    margin-top: 5px;
+}
+
+.city h1{
+    color: white;
+    pointer-events: none;
+    font-size: 4vmax;
+}
+
+.temperature h1{
+    font-size: 5vmax;
+    color:white;
+    pointer-events: none;
+    margin-top: 0px;
+}
+
+.fourdays{
+    width: 70.67%;
+    height:80vh;
+    background-color: #2D3047;
+    color: white;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    border-radius: 23px;
+}
+.fourdays .info{
+    display: grid;
+    grid-template-columns: 15vmax 15vmax 15vmax;
+    margin-left: 0px;
+}
+.fourdays .info .detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height:80px;
+    width: 15vmax;
+    margin-top: 20px;
+}
+.fourdays .info .detail img{
+    width:35px;
+}
+
+.fourdays .info .detail pre{
+    font-size: 14px;
+    margin-top: 10px;
+}
+.fourdays .info .detail p{
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.fourdays h2{
+    margin-top: 20px;
+}
+
+.forecast{
+    flex-direction: row;
+    width: 100%;
+    margin-top: 30px;
+    gap:5%;
+}
+
+.weatherday{
+    flex-direction: column;
+    padding: 8px 7px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 20px;
+    transition: .5s;
+}
+.weatherday:hover{
+    background-color: rgba(0,0,0,.25);
+}
+
+.weatherday img{
+    width: 40px;
+    margin-top: -10px;
+    pointer-events: none;
+}
+.weatherday p.day{
+    font-size: 1.2vw;
+    pointer-events: none;
+}
+.weatherday p.temperature{
+    margin: 10px;
+    pointer-events: none;
+}
+.about{
+    width: 100%;
+    height:auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 0;
+    padding-bottom: 3vw;
+}
+.about h1{
+    font-size: 50px;
+    text-decoration: underline;
+}
+.about p{
+    width: 80vw;
+    font-size: 20px;
+    text-align: justify;
+    margin-top: 50px;
+    color: rgb(32, 28, 28);
+    height:auto;
+} 
+
+.reviewpage{
+    width: 100%;
+    height: 95vh;
+    background: rgba(0,0,0,.6);
+    position: relative;
+    overflow: hidden;
+    gap: 10vw;
+    flex-wrap: wrap;
+}
+.reviewpage::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(images/deskbg.jfif);
+    background-size: cover;
+    z-index: -1;
+    filter: blur(3px);
+}
+.addheading{
+    width: 40vw;
+    font-size: 1.3vw;
+}
+.addheading h1{
+    font-size: 3em;
+    background: linear-gradient(45deg,#ff5a5a,#56bbff);
+    background-clip: text;
+    color: transparent;
+}
+.addheading p{
+    color: white;
+}
+
+.reviewbox{
+    width: 30vmax;
+    background-color: rgba(255,255,255,1);
+    height: auto;
+    border-radius: 20px;
+    position: relative;
+    color: #000;
+    padding: 20px 0;
+    flex-direction: column;
+}
+
+.reviewbox h2{
+    font-size: 2vmax;
+    padding-bottom: 10px;
+}
+.addheading span{
+    font-size: 2vmax;
+}
+.reviewbox .star{
+    gap: 2vw;
+    font-size: 30px;
+}
+.reviewbox form{
+    width: 80%;
+}
+.reviewbox form input[type="text"],.reviewbox form textarea{
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid black;
+    height: 35px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.reviewbox form textarea{
+    height: 100px;
+    width: 100%;
+}
+
+
+
+@media (max-width:1130px) {
+    .forecast{
+        gap:.3vw;
+    }
+}
+@media (max-width:1020px){
+    .weather-section{
+        height: 190vh;
+    }
+    .template{
+        height: 158vh;
+        overflow: visible;
+    }
+    .box{
+        top:0;
+        width: 100%;
+        box-shadow: 0px 10px 15px black;
+    }
+    .fourdays{
+        top: 0;
+        margin-top: 70vh;
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding-top: 100px;
+        padding-bottom: 20px;
+    }
+    .forecast{
+        gap:4vw;
+    }
+}
+
+@media (max-width:800px) {
+    .template{
+        height: 178vh;
+    }
+    .box{
+        height: 60vh;
+    }
+    .fourdays{
+        margin-top: 50vh;
+    }
+    .fourdays .info{
+        grid-template-columns: 30vmax 30vmax;
+    }
+    .fourdays .info .detail{
+        width: 30vmax;
+    }
+    .forecast{
+        display: grid;
+        grid-template-columns: 20vmax 20vmax;
+    }
+    .weatherday p.day{
+        font-size: 20px;
+    }
+
+    .reviewpage{
+        height: 150vh;
+        flex-direction: column;
+    }
+    .addheading{
+        font-size: 3vw;
+        width: 80%;
+    }
+    .reviewbox{
+        width: 80%;
+    }
+    .reviewbox h2{
+        font-size: 6vw;
+    }
+    .addheading span{
+        font-size: 3vmax;
+    }
+}
+
+@media (max-width:400px) {
+    .container .weatherdetails{
+        display: grid;
+        grid-template-columns: 30vw 30vw;
+        margin-left: 0vmax;
+    }
+    .weatherdetails .detail{
+        width: 30vw;
+        height: auto;
+        padding-bottom: 20px;
+    }
+    .weatherdetails .detail img{
+        width: 10vw;
+        height: auto;
+    }
+    .weatherdetails .detail h1{
+        display: none;
+    }
+    .fourdays .info{
+        grid-template-columns: 15vmax 15vmax;
+        margin-left: 7.5vw;
+    }
+    .fourdays .info .detail{
+        width: 15vmax;
+    }
+    .forecast{
+        display: grid;
+        grid-template-columns: 14vmax 14vmax;
+    }
+    .about p{
+        font-size: 15px;;
+    }
+    .reviewpage{
+        height: 120vh;
+    }
+    .reviewpage p{
+        font-size: 2vmax;
+    }
+}
+
+@keyframes appear{
+    from{
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ---------About---------*/
+
+
+
+
 
 .about-container{
     width: 100%;
@@ -297,7 +720,206 @@ button.btn:hover{
     width: 35vw;
 }
 
-/* -----Weather-update------- */
+.Goalsection{
+    width: 100%;
+    height:auto;
+    padding-top: 40px;
+    padding-bottom: 70px;
+    flex-direction: column;
+    font-size: 1.4vmax;
+}
+.ourstory{
+    gap:10vw;
+    padding-top: 50px;
+}
+.ourstory .info{
+    width: 40vw;
+}
+.ourstory .info h1{
+    font-size: 2.4em;
+}
+.ourstory .info p{
+    font-size: 1em;
+    padding-top: 20px;
+    text-align: left;
+}
+.ourstory .info ul{
+    padding-top: 20px;
+    margin-left: 2vw;
+}
+.ourstory .info ul li{
+    font-size: 1em;
+}
+.ourstory .image img{
+    width: 27vw;
+    border-radius: 20px;
+    transition: .5s;
+}
+.ourstory .image img:hover{
+    box-shadow: 2px 2px 10px black;
+}
+
+.keyfeature{
+    width: 100%;
+    height: auto;
+    padding-top: 80px;
+    padding-bottom: 70px;
+    background-color: rgb(12, 12, 32);
+    color: white;
+    font-size: 1.4vmax;
+}
+.keyfeature .hiusers{
+    width: 40%;
+    margin-left:10%;
+    position: sticky;
+    top:0;
+    margin-top: -100vw;
+}
+.keyfeature .hiusers img{
+    width:30vw;
+    margin-left: -7vw;
+    margin-top: -3vw;
+}
+.keyfeature .hiusers h1{
+    font-size: 3em;
+}
+.keyfeature .hiusers h2{
+    font-size: 1.4em;
+}
+.keyfeature .hiusers h3{
+    font-size: 1em;
+}
+.keyfeature .feature{
+    width: 50%;
+    flex-direction: column;
+    gap:10vw;
+}
+.feature .featurebox{
+    width: 35vw;
+    padding: 1vw;
+    height:250px;
+    background-color: white;
+    border-radius: 10px;
+    color:black;
+    box-shadow: -2px -2px 5px rgb(0, 0, 0);
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+}
+.featurebox p{
+    font-size: 0.7em;
+    font-weight: 700;
+}
+.featurebox .btna{
+    width: 50%;
+    height: 40px;
+    margin-top: 10px;
+    float: right;
+    background-color: white;
+    border: none;
+    transition: 0.5s;
+    border-radius: 9px;
+    font-size: 1.78vmax;
+}
+.featurebox .btna a{
+    transition: 0.5s;
+}
+.featurebox .btna:hover{
+    background-color: black;
+}
+.featurebox .btna:hover a{
+    color: white;
+}
+
+.technologies{
+    width: 100%;
+    height: 70vh;
+}
+@media (max-width:1000px) {
+    .keyfeature .hiusers{
+        margin-top: -120vw;
+    }
+    .feature .featurebox{
+        height: 200px;
+    }
+}
+
+@media (max-width:800px) {
+    .about-container{
+        flex-direction: column;
+        height: 110vh;
+    }
+    .about-container .precise{
+        width: 80vw;
+    }
+    .precise h1{
+        font-size: 6vmax;
+        line-height: 40px;
+    }
+    .precise p{
+        line-height: 23px;
+    }
+    .about-container .weather-image{
+        margin-top: 20px;
+    }
+    .about-container .weather-image img{
+        width: 40vw;
+    }
+
+    .ourstory{
+        flex-direction: column-reverse;
+    }
+    .ourstory:nth-child(2){
+        flex-direction: column;
+    }
+    .ourstory .info{
+        width: 70vw;
+        text-align: center;
+    }
+    .ourstory .info:nth-child(2){
+        text-align: left;
+    }
+    .feature .featurebox{
+        height: 150px;
+        animation: none;
+    }
+    .featurebox p{
+        font-size: 0.76em;
+        font-weight: 700;
+    }
+}
+
+@media (max-width:600px) {
+    .keyfeature{
+        flex-direction: column;
+        height: 210vh;
+    }
+    .keyfeature .hiusers{
+        margin-top: 0;
+        top: 100px;
+        width: 60%;
+    }
+    .feature .featurebox{
+        width: 120%;
+        position: sticky;
+        top:50vh;
+    }
+    .feature{
+        position: sticky;
+        top: 65vh;
+        margin-top: 50px;
+    }
+    .ourstory .info p{
+        font-size: 1.25em;
+    }
+    .ourstory .info ul li{
+        font-size: 1.25em;
+    }
+}
+
+
+
+/* -----------Weather Updates---------*/
 
 .updatecontainer{
     width: 100%;
@@ -306,11 +928,303 @@ button.btn:hover{
     background-size: cover;
     position: relative;
     z-index: -4;
-    overflow: hidden;
+    overflow: hidden;
+}
+
+.livelocate{
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #a4c5db;
+}
+.livelocate h1{
+    font-size: 3vmax;
+}
+
+.contain h2{
+    font-size: 1.7vmax;
+}
+.detailss table tr td{
+    color: black;
+    font-weight: 800;
+    font-size: 13px;
+}
+.detailss img{
+    width:100px;
+}
+.contain{
+    gap: 5%;
+}
+.detailss{
+    width: 40%;
+    flex-direction: column;
+}
+.detailss table{
+    position: relative;
+    margin-left: 0%;
+}
+.map{
+    width: 40%;
+    height: auto;
+    flex-direction: column;
+}
+
+.location{
+    margin-top: 20px;
+}
+.location h5{
+    font-size: 1.5em;
+}
+.tables{
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+.tables table:nth-child(2) tr{
+    text-align: center;
+}
+.tables table:nth-child(2) tr th{
+    width: 6vw;
+}
+
+.multicity{
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+}
+.cities{
+    width: 60%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 20px;
+}
+.cities div{
+    width: 99%;
+    background-color: #bdd1df;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 20px;
+    margin-top: 5px;
+}
+.cities div:hover{
+    box-shadow: 1px 1px 4px black;
+}
+.cities div:hover .info{
+    box-shadow: none;
+}
+.cities div .info{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+.cities div .info img{
+    width: 30px;
+}
+
+.more-detail{
+    width: 50vw;
+    height: 50vh;
+    background-color: black;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+    border-radius: 30px;
+    opacity: 0;
+}
+
+.fourday .info{
+    display: grid;
+    grid-template-columns: 15vmax 15vmax 15vmax;
+    margin-left: 0px;
+}
+.fourday .info .detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height:80px;
+    width: 15vmax;
+    margin-top: 20px;
+}
+.fourday .info .detail img{
+    width:35px;
+}
+
+.fourday .info .detail pre{
+    font-size: 14px;
+    margin-top: 10px;
+    color: white;
+}
+.fourday .info .detail p{
+    font-size: 20px;
+    margin-top: 5px;
+    color: white;
+}
+
+.cross{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.cross h1{
+    font-size: 18px;
+    color: white;
+}
+.sharing{
+    width: 100%;
+    height: 80vh;
+    margin-top: 20px;
+}
+.share{
+    flex-direction: column;
+    width: 45vw;
+}
+.menubar{
+    position: relative;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menubar .toggle{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid black;
+    box-shadow: 0 25px 40px rgba(0,0,0,.25);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    
+}
+.toggle i{
+    font-size: 30px;
+    position: absolute;
+    transition: 0.5s;
+    opacity: 0;
+}
+.menubar .toggle i:nth-child(1){
+    opacity: 1;
+    transform: rotate(0deg);
+}
+.menubar:hover .toggle i:nth-child(1){
+    opacity: 0;
+    transform: rotate(360deg);
+}
+.menubar:hover .toggle i:nth-child(2){
+    opacity: 1;
+    transform: rotate(360deg);
+    font-size: 40px;
+}
+
+.menubar li{
+    position: absolute;
+    list-style: none;
+    left: 0;
+    transform-origin: 110px;
+    transform: rotate(calc(360deg / 4 * var(--i)));
+    scale: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-left: 0;
+    z-index: -3;
+    transition-delay: calc(0.1s * var(--i));
+}
+.menubar:hover li{
+    scale: 1;
+}
+.menubar li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: var(--clr);
+    font-size: 2.25em;
+    border-radius: 50%;
+    color: white;
+}
+.menubar li a i{
+    transform: rotate(calc(-360deg / 4 * var(--i)));
+}
+
+.sharing .image img{
+    width: 45vw;
+    height: auto;
+}
+.sharing .image img{
+    width: 45vw;
+    height: auto;
 }
 
 
-/* ------------login-------*/
+@media (max-width: 868px) {
+    .livelocate{
+        height: 130vh;
+    }
+    .contain{
+        flex-direction: column;
+    }
+    .detailss{
+        width:90%;
+    }
+    .map{
+        width: 100%;
+        margin-top: 60px;
+    }
+    .tables{
+        gap:10px;
+    }
+    .tables table{
+        font-size: 12px;
+    }
+    .multicity{
+        height: 180vh;
+    }
+    .cities{
+        width:80%;
+        grid-template-columns: 100%;
+    }
+}
+@media (max-width:798px) {
+    .sharing{
+        flex-direction: column;
+        height: 100vh;
+    }
+    .sharing .share{
+        width: 90%;
+    }
+}
+@media (max-width:400px) {
+    .multicity{
+        height: 150vh;
+    }
+    .sharing .image img{
+        width: 70vw;
+    }
+}
+
+/* ---------- Login Page -------------- */
+
+
+
+
+
 .login-container{
     width: 100%;
     height:100vh;
@@ -411,3 +1325,11 @@ input[type="submit"]:hover{
 .signup_link a:hover{
     text-decoration: underline;
 }
+
+
+@media (max-width: 768px) {
+    .center{
+        transform: scale(0.8);
+    }
+}
+
