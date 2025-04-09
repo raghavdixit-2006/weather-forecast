@@ -549,6 +549,25 @@ button.btn:hover{
     flex-direction: column;
 }
 
+.location{
+    margin-top: 20px;
+}
+.location h5{
+    font-size: 1.5em;
+}
+.tables{
+    width: 50%;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+.tables table:nth-child(2) tr{
+    text-align: center;
+}
+.tables table:nth-child(2) tr th{
+    width: 6vw;
+}
+
 
 
 
