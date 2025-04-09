@@ -382,8 +382,46 @@ button.btn:hover{
     margin-top: 0px;
 }
 
+.fourdays{
+    width: 70.67%;
+    height:80vh;
+    background-color: #2D3047;
+    color: white;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    border-radius: 23px;
+}
+.fourdays .info{
+    display: grid;
+    grid-template-columns: 15vmax 15vmax 15vmax;
+    margin-left: 0px;
+}
+.fourdays .info .detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height:80px;
+    width: 15vmax;
+    margin-top: 20px;
+}
+.fourdays .info .detail img{
+    width:35px;
+}
 
+.fourdays .info .detail pre{
+    font-size: 14px;
+    margin-top: 10px;
+}
+.fourdays .info .detail p{
+    font-size: 20px;
+    margin-top: 5px;
+}
 
+.fourdays h2{
+    margin-top: 20px;
+}
 
 
 
