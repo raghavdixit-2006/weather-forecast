@@ -518,7 +518,15 @@ button.btn:hover{
     margin-left: -7vw;
     margin-top: -3vw;
 }
-
+.keyfeature .hiusers h1{
+    font-size: 3em;
+}
+.keyfeature .hiusers h2{
+    font-size: 1.4em;
+}
+.keyfeature .hiusers h3{
+    font-size: 1em;
+}
 /* -----Weather-update------- */
 
 .updatecontainer{
