@@ -652,35 +652,6 @@ button.btn:hover{
     }
 }
 
-@media (max-width:600px) {
-    .keyfeature{
-        flex-direction: column;
-        height: 210vh;
-    }
-    .keyfeature .hiusers{
-        margin-top: 0;
-        top: 100px;
-        width: 60%;
-    }
-    .feature .featurebox{
-        width: 120%;
-        position: sticky;
-        top:50vh;
-    }
-    .feature{
-        position: sticky;
-        top: 65vh;
-        margin-top: 50px;
-    }
-    .ourstory .info p{
-        font-size: 1.25em;
-    }
-    .ourstory .info ul li{
-        font-size: 1.25em;
-    }
-}
-
-
 
 /* -----------Weather Updates---------*/
 
