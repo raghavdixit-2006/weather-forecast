@@ -60,3 +60,34 @@ body {
     color: #666;
     font-size: 0.875rem;
   }
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .social-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .social-button i {
+    font-size: 1.2rem;
+  }
+  .login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .login-link a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  .login-link a:hover {
+    text-decoration: underline;
+  }
