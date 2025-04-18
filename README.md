@@ -27,9 +27,13 @@ This project is open-source and available under the MIT License.
 ## 🤝 Contributing
 ### 🤝 Contributers
 - Rahul Gheek
+  - Created the Home page
 - Risav Singh
+  - Created the Weather Update Page
 - Samar Gupta
+  - Created the Login and Signup Pages
 - Sameer Aggarwal
+  - Created the About Page
 
 To contribute, simply fork the repository, make your changes, and open a pull request. We appreciate every contribution!
 
