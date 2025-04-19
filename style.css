@@ -535,6 +535,34 @@ button.btn:hover{
     font-size: 2vmax;
 }
 
+.reviewbox .star{
+    gap: 2vw;
+    font-size: 30px;
+}
+.reviewbox form{
+    width: 80%;
+}
+.reviewbox form input[type="text"],.reviewbox form textarea{
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid black;
+    height: 35px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.reviewbox form textarea{
+    height: 100px;
+    width: 100%;
+}
+
+
+
+@media (max-width:1130px) {
+    .forecast{
+        gap:.3vw;
+    }
+}
+
 
 /* ---------About---------*/
 
