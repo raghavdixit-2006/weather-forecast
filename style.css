@@ -1078,3 +1078,95 @@ input[type="submit"]:hover{
         transform: scale(0.8);
     }
 }
+
+
+
+
+
+
+/* --------- footer --------*/
+
+
+
+footer{
+    width: 100%;
+    background-color: rgb(24, 26, 73);
+    padding: 40px 40px;
+    padding-bottom: 20px;
+    position: relative;
+    margin-top: 0px;
+}
+footer .menu{
+    margin-left: -5vw;
+}
+footer .menu .icons{
+    width: 100%;
+    display: flex;
+    gap:10px;
+    margin-top: 10px;
+}
+footer .menu .icons i{
+    color:white;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.1);
+    padding: 3px 9px;
+    border-radius: 50%;
+    transition: 0.5s;
+} 
+footer .menu .icons i:hover{
+    background-color: rgba(255,255,255,0.3);
+}
+.menub ul{
+    gap: 0;
+    flex-direction: column;
+    align-items: baseline;
+}
+.menub ul li{
+    list-style: none;
+}
+.menub ul li a{
+    color: white;
+    text-decoration: none;
+}
+.menub ul li a:hover{
+    text-decoration: underline;
+}
+.menuc h1{
+    color:white;
+    font-size: 2vmax;
+}
+.menuc input[type="text"]{
+    width: 300px;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 0 5px;
+    background-color: white;
+    border: none;
+    height: 27px;
+}
+.menuc input[type="button"]{
+    background-color: #2691d9;
+    border: 1px solid white;
+    color: white;
+    margin-top: 10px;
+    width: 100px;
+    border-radius: 20px;
+    height: 30px;
+    float: right;
+}
+
+footer .hr{
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: -60px;
+    left: 0;
+    border-top: 1px solid #e9f4fb;
+    background: rgb(24, 26, 73);
+    color: white;
+    padding: 0px 40px;
+    justify-content: space-between;
+}
+footer .hr ul{
+    gap: 7vw;
+}
