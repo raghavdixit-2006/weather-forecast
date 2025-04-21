@@ -55,3 +55,30 @@
     --shadow-color: rgba(0, 0, 0, 0.3);
     --html-bg: #1a1a1a;
 }
+
+/* Light theme variables */
+.light-theme {
+    --bg-color: #f5f7fa;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --hover-color: #f0f0f0;
+    --icon-filter: 0;
+}
+
+/* Apply theme variables */
+html {
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
