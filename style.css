@@ -960,8 +960,68 @@ button.btn:hover{
     box-shadow: 0 25px 40px rgba(0,0,0,.25);
     cursor: pointer;
     backdrop-filter: blur(10px);
-    
 }
+.toggle i{
+    font-size: 30px;
+    position: absolute;
+    transition: 0.5s;
+    opacity: 0;
+}
+.menubar .toggle i:nth-child(1){
+    opacity: 1;
+    transform: rotate(0deg);
+}
+.menubar:hover .toggle i:nth-child(1){
+    opacity: 0;
+    transform: rotate(360deg);
+}
+.menubar:hover .toggle i:nth-child(2){
+    opacity: 1;
+    transform: rotate(360deg);
+    font-size: 40px;
+}
+
+.menubar li{
+    position: absolute;
+    list-style: none;
+    left: 0;
+    transform-origin: 110px;
+    transform: rotate(calc(360deg / 4 * var(--i)));
+    scale: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-left: 0;
+    z-index: -3;
+    transition-delay: calc(0.1s * var(--i));
+}
+.menubar:hover li{
+    scale: 1;
+}
+.menubar li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: var(--clr);
+    font-size: 2.25em;
+    border-radius: 50%;
+    color: white;
+}
+.menubar li a i{
+    transform: rotate(calc(-360deg / 4 * var(--i)));
+}
+
+.sharing .image img{
+    width: 45vw;
+    height: auto;
+}
+.sharing .image img{
+    width: 45vw;
+    height: auto;
+}
+
 
 
 
