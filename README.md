@@ -1,7 +1,7 @@
 # 🌦️ Weather Forecast Website
 
 ## 🌍 Overview
-We are building a simple and user-friendly weather forecast website that provides real-time weather updates and forecasts based on user input.
+Our website is a simple and user-friendly weather forecast website that provides real-time weather updates and forecasts based on user input.
 
 ## ⚡ Features
 - 🌡️ Current weather conditions
