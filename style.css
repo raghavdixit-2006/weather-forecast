@@ -1078,3 +1078,41 @@ input[type="submit"]:hover{
         transform: scale(0.8);
     }
 }
+
+
+
+
+
+
+/* --------- footer --------*/
+
+
+
+footer{
+    width: 100%;
+    background-color: rgb(24, 26, 73);
+    padding: 40px 40px;
+    padding-bottom: 20px;
+    position: relative;
+    margin-top: 0px;
+}
+footer .menu{
+    margin-left: -5vw;
+}
+footer .menu .icons{
+    width: 100%;
+    display: flex;
+    gap:10px;
+    margin-top: 10px;
+}
+footer .menu .icons i{
+    color:white;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.1);
+    padding: 3px 9px;
+    border-radius: 50%;
+    transition: 0.5s;
+} 
+footer .menu .icons i:hover{
+    background-color: rgba(255,255,255,0.3);
+}
