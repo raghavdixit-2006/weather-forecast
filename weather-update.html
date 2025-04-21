@@ -147,5 +147,24 @@
                 </div>
             </div>
         </div>
+
+        <script src="script2.js">
+        
+        </script>
+        <script>
+            var menu = document.querySelector("nav ul")
+            function menubar(){
+                if(menu.style.display == "none"){
+                menu.style.display = "block";
+                }
+                else{
+                    menu.style.display = "none";
+                }
+            }
+    
+            const today = new Date();
+            let date1 = document.getElementById("date1");
+            date1.innerHTML = (today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear());
+        </script>
 </body>
 </html>
