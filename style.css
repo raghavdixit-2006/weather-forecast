@@ -960,8 +960,27 @@ button.btn:hover{
     box-shadow: 0 25px 40px rgba(0,0,0,.25);
     cursor: pointer;
     backdrop-filter: blur(10px);
-    
 }
+.toggle i{
+    font-size: 30px;
+    position: absolute;
+    transition: 0.5s;
+    opacity: 0;
+}
+.menubar .toggle i:nth-child(1){
+    opacity: 1;
+    transform: rotate(0deg);
+}
+.menubar:hover .toggle i:nth-child(1){
+    opacity: 0;
+    transform: rotate(360deg);
+}
+.menubar:hover .toggle i:nth-child(2){
+    opacity: 1;
+    transform: rotate(360deg);
+    font-size: 40px;
+}
+
 
 
 
