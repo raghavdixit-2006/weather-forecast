@@ -484,6 +484,85 @@ button.btn:hover{
     height:auto;
 } 
 
+.reviewpage{
+    width: 100%;
+    height: 95vh;
+    background: rgba(0,0,0,.6);
+    position: relative;
+    overflow: hidden;
+    gap: 10vw;
+    flex-wrap: wrap;
+}
+.reviewpage::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(images/deskbg.jfif);
+    background-size: cover;
+    z-index: -1;
+    filter: blur(3px);
+}
+.addheading{
+    width: 40vw;
+    font-size: 1.3vw;
+}
+.addheading h1{
+    font-size: 3em;
+    background: linear-gradient(45deg,#ff5a5a,#56bbff);
+    background-clip: text;
+    color: transparent;
+}
+.addheading p{
+    color: white;
+}
+.reviewbox{
+    width: 30vmax;
+    background-color: rgba(255,255,255,1);
+    height: auto;
+    border-radius: 20px;
+    position: relative;
+    color: #000;
+    padding: 20px 0;
+    flex-direction: column;
+}
+
+.reviewbox h2{
+    font-size: 2vmax;
+    padding-bottom: 10px;
+}
+.addheading span{
+    font-size: 2vmax;
+}
+
+.reviewbox .star{
+    gap: 2vw;
+    font-size: 30px;
+}
+.reviewbox form{
+    width: 80%;
+}
+.reviewbox form input[type="text"],.reviewbox form textarea{
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid black;
+    height: 35px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.reviewbox form textarea{
+    height: 100px;
+    width: 100%;
+}
+
+
+
+@media (max-width:1130px) {
+    .forecast{
+        gap:.3vw;
+    }
+}
+
 
 /* ---------About---------*/
 
@@ -837,7 +916,6 @@ button.btn:hover{
     margin-top: 5px;
     color: white;
 }
-
 .cross{
     position: absolute;
     top: 0;
@@ -882,7 +960,6 @@ button.btn:hover{
     box-shadow: 0 25px 40px rgba(0,0,0,.25);
     cursor: pointer;
     backdrop-filter: blur(10px);
-    
 }
 .toggle i{
     font-size: 30px;
@@ -946,51 +1023,7 @@ button.btn:hover{
 }
 
 
-@media (max-width: 868px) {
-    .livelocate{
-        height: 130vh;
-    }
-    .contain{
-        flex-direction: column;
-    }
-    .detailss{
-        width:90%;
-    }
-    .map{
-        width: 100%;
-        margin-top: 60px;
-    }
-    .tables{
-        gap:10px;
-    }
-    .tables table{
-        font-size: 12px;
-    }
-    .multicity{
-        height: 180vh;
-    }
-    .cities{
-        width:80%;
-        grid-template-columns: 100%;
-    }
-}
-@media (max-width:798px) {
-    .sharing{
-        flex-direction: column;
-        height: 100vh;
-    }
-    .sharing .share{
-        width: 90%;
-    }
-}
-@media (max-width:400px) {
-    .multicity{
-        height: 150vh;
-    }
-    .sharing .image img{
-        width: 70vw;
-    }
-}
+
 
 /* ---------- Login Page -------------- */
 
@@ -1104,4 +1137,96 @@ input[type="submit"]:hover{
     .center{
         transform: scale(0.8);
     }
+}
+
+
+
+
+
+
+/* --------- footer --------*/
+
+
+
+footer{
+    width: 100%;
+    background-color: rgb(24, 26, 73);
+    padding: 40px 40px;
+    padding-bottom: 20px;
+    position: relative;
+    margin-top: 0px;
+}
+footer .menu{
+    margin-left: -5vw;
+}
+footer .menu .icons{
+    width: 100%;
+    display: flex;
+    gap:10px;
+    margin-top: 10px;
+}
+footer .menu .icons i{
+    color:white;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.1);
+    padding: 3px 9px;
+    border-radius: 50%;
+    transition: 0.5s;
+} 
+footer .menu .icons i:hover{
+    background-color: rgba(255,255,255,0.3);
+}
+.menub ul{
+    gap: 0;
+    flex-direction: column;
+    align-items: baseline;
+}
+.menub ul li{
+    list-style: none;
+}
+.menub ul li a{
+    color: white;
+    text-decoration: none;
+}
+.menub ul li a:hover{
+    text-decoration: underline;
+}
+.menuc h1{
+    color:white;
+    font-size: 2vmax;
+}
+.menuc input[type="text"]{
+    width: 300px;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 0 5px;
+    background-color: white;
+    border: none;
+    height: 27px;
+}
+.menuc input[type="button"]{
+    background-color: #2691d9;
+    border: 1px solid white;
+    color: white;
+    margin-top: 10px;
+    width: 100px;
+    border-radius: 20px;
+    height: 30px;
+    float: right;
+}
+
+footer .hr{
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: -60px;
+    left: 0;
+    border-top: 1px solid #e9f4fb;
+    background: rgb(24, 26, 73);
+    color: white;
+    padding: 0px 40px;
+    justify-content: space-between;
+}
+footer .hr ul{
+    gap: 7vw;
 }

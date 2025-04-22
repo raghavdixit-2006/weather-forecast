@@ -1,7 +1,7 @@
 # 🌦️ Weather Forecast Website
 
 ## 🌍 Overview
-We are building a simple and user-friendly weather forecast website that provides real-time weather updates and forecasts based on user input.
+Our website is a simple and user-friendly weather forecast website that provides real-time weather updates and forecasts based on user input.
 
 ## ⚡ Features
 - 🌡️ Current weather conditions
@@ -27,9 +27,13 @@ This project is open-source and available under the MIT License.
 ## 🤝 Contributing
 ### 🤝 Contributers
 - Rahul Gheek
+  - Created the Home page
 - Risav Singh
+  - Created the Weather Update Page
 - Samar Gupta
+  - Created the Login and Signup Pages
 - Sameer Aggarwal
+  - Created the About Page
 
 To contribute, simply fork the repository, make your changes, and open a pull request. We appreciate every contribution!
 
