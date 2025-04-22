@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast - Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png">
+            <h1>WEATHER<br>FORECAST</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="./weather-update.html">WEATHER UPDATES</a></li>
+                <li><a href="./about.html">ABOUT</a></li>
+                <li><a href="./login.html">LOGIN</a></li>
+            </ul>
+            <img src="images/icons8-menu-32.png" alt="" onclick="menubar()">
+        </nav>
+    </header>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="admin-profile">
+                <div class="admin-avatar">
+                    <img src="images/logo.png" alt="Admin">
+                </div>
+                <h3>Admin User</h3>
+                <p>Administrator</p>
+            </div>
+            <ul class="admin-menu">
+                <li class="active"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#users"><i class="fas fa-users"></i> User Management</a></li>
+                <li><a href="#"><i class="fas fa-cloud-sun"></i> Weather Data</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                <li class="logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+
+        
+</body>
+</html>
