@@ -319,5 +319,15 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
+    <script>
+        const today = new Date();
+        let date1 = document.getElementById("date1");
+        let day1 = document.getElementById("day1");
+        date1.innerHTML = (today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear());
+        x = today.getDay();
+        days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"];
+        day1.innerHTML = days[x];
+    </script>
 </body>
 </html>
