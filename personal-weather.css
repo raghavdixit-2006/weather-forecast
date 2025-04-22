@@ -82,3 +82,93 @@ body {
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* Header Styles */
+header {
+    padding: 0 50px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.logo h1 {
+    font-size: 20px;
+    color: white;
+}
+
+nav {
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    border-radius: 10px;
+    display: flex;
+    gap: 2vmax;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 5px 0vmax;
+    position: relative;
+}
+
+nav ul li::before {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 2px;
+    background-color: #FF5656;
+    bottom: 0;
+    left: 0px;
+    border-radius: 20px;
+    transition: .5s;
+}
+
+nav ul li:hover::before {
+    width: 100%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3vmax;
+    transition: .5s;
+}
+
+nav ul li:hover a {
+    color: #FF5656;
+}
+
+nav img {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    transition: 0.5s;
+    position: absolute;
+    margin-top: -15px;
+    padding: 4px;
+    display: none;
+    margin-left: -8vw;
+}
+
+nav img:hover {
+    background-color: rgba(0,0,0,0.7);
+}
