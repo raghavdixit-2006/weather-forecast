@@ -129,4 +129,61 @@ document.addEventListener('DOMContentLoaded', function() {
             visibility: true
         }
     };
- 
+    
+    // Initialize the app
+    function initApp() {
+        try {
+        // Load user settings
+        loadUserSettings();
+        
+        // Render favorite locations
+        renderFavorites();
+        
+        // Set event listeners
+        searchButton.addEventListener('click', handleSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSearch();
+        });
+        currentLocationButton.addEventListener('click', getCurrentLocationWeather);
+        addToFavoritesButton.addEventListener('click', addCurrentToFavorites);
+        addLocationButton.addEventListener('click', addLocationToFavorites);
+        saveSettingsButton.addEventListener('click', saveUserSettings);
+            
+            // Theme toggle event listener
+            themeToggle.addEventListener('change', (e) => {
+                const newTheme = e.target.value;
+                applyTheme(newTheme);
+                // Save theme preference immediately
+                userSettings.theme = newTheme;
+                localStorage.setItem('weatherSettings', JSON.stringify(userSettings));
+                showNotification('Theme updated successfully');
+            });
+        
+        // Apply theme from settings
+        applyTheme(userSettings.theme);
+        
+        // Try to get the user's location on page load
+        getCurrentLocationWeather();
+        } catch (error) {
+            console.error('Error initializing app:', error);
+            showNotification('Error initializing the application. Please refresh the page.');
+        }
+    }
+    
+    // Load user settings from localStorage
+    function loadUserSettings() {
+        // Apply saved settings to UI controls
+        unitToggle.value = userSettings.unit;
+        themeToggle.value = userSettings.theme;
+        
+        document.getElementById('show-humidity').checked = userSettings.displayOptions.humidity;
+        document.getElementById('show-wind').checked = userSettings.displayOptions.wind;
+        document.getElementById('show-pressure').checked = userSettings.displayOptions.pressure;
+        document.getElementById('show-visibility').checked = userSettings.displayOptions.visibility;
+        
+        // Set username if available
+        const username = localStorage.getItem('weatherUsername');
+        if (username) {
+            document.getElementById('username').textContent = username;
+        }
+    }
