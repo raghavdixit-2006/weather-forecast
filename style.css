@@ -1022,6 +1022,52 @@ button.btn:hover{
     height: auto;
 }
 
+@media (max-width: 868px) {
+    .livelocate{
+        height: 130vh;
+    }
+    .contain{
+        flex-direction: column;
+    }
+    .detailss{
+        width:90%;
+    }
+    .map{
+        width: 100%;
+        margin-top: 60px;
+    }
+    .tables{
+        gap:10px;
+    }
+    .tables table{
+        font-size: 12px;
+    }
+    .multicity{
+        height: 180vh;
+    }
+    .cities{
+        width:80%;
+        grid-template-columns: 100%;
+    }
+}
+@media (max-width:798px) {
+    .sharing{
+        flex-direction: column;
+        height: 100vh;
+    }
+    .sharing .share{
+        width: 90%;
+    }
+}
+@media (max-width:400px) {
+    .multicity{
+        height: 150vh;
+    }
+    .sharing .image img{
+        width: 70vw;
+    }
+}
+
 
 
 
