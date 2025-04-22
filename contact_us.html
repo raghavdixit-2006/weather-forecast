@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contactus.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Using the same header as other pages -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png">
+            <h1>WEATHER<br>FORECAST</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="./weather-update.html">WEATHER UPDATES</a></li>
+                <li><a href="./about.html">ABOUT</a></li>
+                <li><a href="./login.html">LOGIN</a></li>
+            </ul>
+            <img src="images/icons8-menu-32.png" alt="" srcset="" onclick="menubar()">
+        </nav>
+    </header>
+
+    <!-- Contact Us Hero Section -->
+    <div class="contact-hero">
+        <div class="contact-hero-overlay">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our weather experts</p>
+        </div>
+    </div>
+    <!-- Contact Info Cards -->
+    <div class="contact-info-container">
+        <div class="contact-info-card">
+            <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Our Location</h3>
+            <p>123 Weather Tower, Climate Street</p>
+            <p>New Delhi, 110001, India</p>
+        </div>
+        <div class="contact-info-card">
+            <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Call Us</h3>
+            <p>+91 123 456 7890</p>
+            <p>+91 987 654 3210</p>
+        </div>
+        <div class="contact-info-card">
+            <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email Us</h3>
+            <p>info@weatherforecast.com</p>
+            <p>support@weatherforecast.com</p>
+        </div>
+        <div class="contact-info-card">
+            <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h3>Working Hours</h3>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+            <p>Saturday: 10:00 AM - 4:00 PM</p>
+        </div>
+    </div>
+    <!-- Contact Form and Map Section -->
+    <div class="contact-main-container">
+        <div class="contact-form-container">
+            <h2>Send Us A Message</h2>
+            <p>We're here to help and answer any question you might have. We look forward to hearing from you.</p>
+            
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="Enter subject">
+                    </div>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" rows="6" placeholder="Type your message here..." required></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <button type="submit" class="contact-submit-btn">Send Message</button>
+                </div>
+            </form>
+        </div>
+        <div class="contact-map-container">
+            <h2>Find Us On Map</h2>
+            <div class="map-responsive">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.2536250044317!2d77.20731671492032!3d28.56953998244542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce26f903969d7%3A0x8367180c6de2eafb!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1655964943348!5m2!1sen!2sin" 
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- Address and Branch Offices Section -->
+    <div class="branch-offices-section">
+        <h2>Our Branch Offices</h2>
+        <div class="offices-container">
+            <div class="office-card">
+                <div class="office-header">
+                    <i class="fas fa-building"></i>
+                    <h3>Mumbai Branch</h3>
+                </div>
+                <div class="office-details">
+                    <p><i class="fas fa-map-marker-alt"></i> 456 Marine Drive, Mumbai, 400002</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 223 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> mumbai@weatherforecast.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            <div class="office-card">
+                <div class="office-header">
+                    <i class="fas fa-building"></i>
+                    <h3>Bangalore Branch</h3>
+                </div>
+                <div class="office-details">
+                    <p><i class="fas fa-map-marker-alt"></i> 789 MG Road, Bangalore, 560001</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 804 567 8901</p>
+                    <p><i class="fas fa-envelope"></i> bangalore@weatherforecast.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            <div class="office-card">
+                <div class="office-header">
+                    <i class="fas fa-building"></i>
+                    <h3>Chennai Branch</h3>
+                </div>
+                <div class="office-details">
+                    <p><i class="fas fa-map-marker-alt"></i> 321 Anna Salai, Chennai, 600002</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 442 345 6789</p>
+                    <p><i class="fas fa-envelope"></i> chennai@weatherforecast.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            <div class="office-card">
+                <div class="office-header">
+                    <i class="fas fa-building"></i>
+                    <h3>Kolkata Branch</h3>
+                </div>
+                <div class="office-details">
+                    <p><i class="fas fa-map-marker-alt"></i> 654 Park Street, Kolkata, 700016</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 332 345 6789</p>
+                    <p><i class="fas fa-envelope"></i> kolkata@weatherforecast.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

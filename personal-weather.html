@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="personal-weather.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png">
+            <h1>WEATHER<br>FORECAST</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="./weather-update.html">WEATHER UPDATES</a></li>
+                <li><a href="./personal-weather.html">MY DASHBOARD</a></li>
+                <li><a href="./about.html">ABOUT</a></li>
+                <li><a href="./login.html">LOGIN</a></li>
+            </ul>
+            <img src="images/icons8-menu-32.png" alt="" srcset="" onclick="menubar()">
+        </nav>
+    </header>
+
+    <div class="personal-container">
+        <div class="dashboard-header">
+            <h1>Personal Weather Dashboard</h1>
+            <p>Customize your weather experience</p>
+        </div>
+
+        <div class="dashboard-main flexbox">
+            <div class="sidebar">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <h3>Welcome, <span id="username">User</span></h3>
+                </div>
+                
+                <div class="favorites">
+                    <h3>Favorite Locations</h3>
+                    <div class="favorite-list" id="favorite-locations">
+                        <!-- Dynamically populated -->
+                    </div>
+                    <div class="add-favorite flexbox">
+                        <input type="text" id="add-location" placeholder="Add location">
+                        <button id="add-btn"><i class="bi bi-plus-lg"></i></button>
+                    </div>
+                </div>
+                
+                <div class="settings">
+                    <h3>Settings</h3>
+                    <div class="setting-item">
+                        <label for="unit-toggle">Temperature Unit</label>
+                        <select id="unit-toggle">
+                            <option value="celsius">Celsius (°C)</option>
+                            <option value="fahrenheit">Fahrenheit (°F)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="dashboard-theme">Dashboard Theme</label>
+                        <select id="dashboard-theme">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                            <option value="auto">Auto (System)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Display Options</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="show-humidity" checked>
+                            <label for="show-humidity">Humidity</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="show-wind" checked>
+                            <label for="show-wind">Wind</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="show-pressure" checked>
+                            <label for="show-pressure">Pressure</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="show-visibility" checked>
+                            <label for="show-visibility">Visibility</label>
+                        </div>
+                        </div>
+                        <button id="save-settings" class="primary-btn">Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="personal-weather.js"></script>
+</body>
+</html>
+
+                    

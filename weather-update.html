@@ -17,7 +17,8 @@
         <nav>
             <ul>
                 <li><a href="./index.html">HOME</a></li>
-                <li><a href="./Weatherupdates.html">WEATHER UPDATES</a></li>
+                <li><a href="./weather-update.html">WEATHER UPDATES</a></li>
+                <li><a href="./personal-weather.html">MY DASHBOARD</a></li>
                 <li><a href="./about.html">ABOUT</a></li>
                 <li><a href="./login.html">LOGIN</a></li>
                 </ul>
@@ -128,5 +129,101 @@
             </div>
         </div>
     </div>
+    
+    <div class="sharing flexbox">
+        <div class="share flexbox">
+            <h1 style="width: 100%;">Share our <span style="color: #ee7d7d;">Amazing</span> Website <br>To your <span style="color: #ee7d7d;">Amazing</span> Friends
+            </h1>
+            <p style="margin-top: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, debitis praesentium. Laudantium, itaque sed. Dolor laborum unde delectus. Eum odit necessitatibus pariatur explicabo. Voluptates, hic nesciunt ipsa repellat tenetur qui</p>
+
+            <div class="menubar">
+                <li style="--i:1; --clr:red;"><a href=""><i class="bi bi-youtube"></i></a></li>
+                <li style="--i:2; --clr:#1872ff;"><a href=""><i class="bi bi-facebook"></i></a></li>
+                <li style="--i:3; --clr:#25d366;"><a href=""><i class="bi bi-whatsapp"></i></a></li>
+                <li style="--i:4; --clr:#ea4c89;"><a href=""><i class="bi bi-dribbble"></i></a></li>
+                <div class="toggle flexbox">
+                    <i class="bi bi-share-fill"></i>
+                    <i class="bi bi-x"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="image">
+            <img src="images/rb_22647.png" alt="">
+        </div>
+    </div>
+    <footer class="flexbox" style="justify-content: space-between; flex-wrap: wrap; margin-top: 100px;">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <div class="menu">
+            <div class="logo">
+                <img src="images/logo.png">
+                <h1>WEATHER<br>FORECAST</h1>
+            </div>
+            <div class="icons">
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-twitter"></i>
+                <i class="bi bi-linkedin"></i>
+            </div>
+        </div>
+
+        <div class="menub">
+            <ul class="flexbox">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">WEATHER UPDATES</a></li>
+                <li><a href="#">MY DASHBOARD</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">LOGIN</a></li>
+            </ul>
+        </div>
+
+        <div class="menub">
+            <ul class="flexbox" style="justify-content: center; align-items: flex-start;">
+                <li><a href="#">Mobile - 97807-XXXX</a></li>
+                <li><a href="#">Email - weatherapp@gmail.com</a></li>
+                <li><a href="#">address-india</a></li>
+            </ul>
+        </div>
+
+        <div class="menuc">
+            <h1>Signup for the<br>latest updates</h1>
+            <form action="">
+                <input type="text" placeholder="Enter Your Email"><br>
+                <input type="button" value="Send">
+            </form>
+        </div>
+        <div class="hr flexbox">
+            <h4>All rights reserved</h4>
+            <ul class="flexbox">
+                <li><a href="">Terms</a></li>
+                <li><a href="">Privacy</a></li>
+                <li><a href="">Compensation</a></li>
+            </ul>
+        </div>
+    </footer>
+
+        <script src="script2.js">
+        
+        </script>
+        <script>
+            var menu = document.querySelector("nav ul")
+            function menubar(){
+                if(menu.style.display == "none"){
+                menu.style.display = "block";
+                }
+                else{
+                    menu.style.display = "none";
+                }
+            }
+    
+            const today = new Date();
+            let date1 = document.getElementById("date1");
+            date1.innerHTML = (today.getDate()+"/"+(today.getMonth()+1)+"/"+today.getFullYear());
+        </script>
 </body>
 </html>
