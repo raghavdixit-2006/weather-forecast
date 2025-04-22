@@ -259,3 +259,97 @@
 .stat-progress p i {
   margin-right: 4px;
 }
+
+
+/* Cards */
+.admin-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.admin-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-header h3 {
+  font-size: 18px;
+  margin: 0;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+}
+
+.card-header h3 i {
+  margin-right: 10px;
+  color: var(--secondary);
+}
+
+.view-all {
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.view-all:hover {
+  color: var(--primary);
+}
+
+/* Activities & Alerts */
+.activity-list, .alerts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-list li, .alerts-list li {
+  display: flex;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.activity-list li:last-child, .alerts-list li:last-child {
+  border-bottom: none;
+}
+
+.activity-icon, .alert-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: white;
+  font-size: 16px;
+}
+
+.activity-details h4, .alert-details h4 {
+  font-size: 16px;
+  margin: 0 0 5px;
+  color: var(--text-dark);
+}
+
+.activity-details p, .alert-details p {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 5px;
+}
+
+.activity-time {
+  font-size: 12px;
+  color: #999;
+}
