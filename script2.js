@@ -46,3 +46,17 @@ async function getIPInfo(){
     lat.innerHTML = info.loc.split(",")[0];
     lon.innerHTML = info.loc.split(",")[1];
 }
+
+const cities = ["Delhi","Mumbai","Chennai","Chandigarh","Banglore","Hyderabad","Kolkata","Ahmedabad","Surat","Jaipur","Lucknow","Kanpur","Indore","Nagpur","Patna","Agra","Meerut","Varanasi","Haridwar","Madurai","Jamshedpur"];
+const apiKey = "56c931f2347e26bdffcf671b5f284d4f";
+
+const weatherContainer = document.getElementById("cities");
+
+cities.forEach(city => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            // Create a card for each city
+            const weatherCard = document.createElement("div");
+        }
+    }
