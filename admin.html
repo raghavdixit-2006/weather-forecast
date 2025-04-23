@@ -152,6 +152,69 @@
             </div>
         </div>
 
+        <!-- User Management -->
+        <div id="users" class="admin-section">
+            <div class="section-header">
+                <h2><i class="fas fa-users"></i> User Management</h2>
+                <div class="section-actions">
+                    <button class="add-user-btn"><i class="fas fa-plus"></i> Add New User</button>
+                    <div class="filter-dropdown">
+                        <button>Filter <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="users-table-container">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>#WF001</td>
+                            <td><div class="user-info"><div class="user-avatar"><img src="images/thermometer.png" alt="User"></div><div>John Smith</div></div></td>
+                            <td>john.smith@example.com</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td><div class="action-buttons"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash"></i></button></div></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>#WF002</td>
+                            <td><div class="user-info"><div class="user-avatar"><img src="images/humidity.png" alt="User"></div><div>Sarah Johnson</div></div></td>
+                            <td>sarah.j@example.com</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td><div class="action-buttons"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash"></i></button></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="pagination">
+                <button class="page-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="page-number active">1</button>
+                <button class="page-number">2</button>
+                <button class="page-number">3</button>
+                <button class="page-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function menubar() {
+        var x = document.querySelector("nav ul");
+        x.style.display = x.style.display === "block" ? "none" : "block";
+    }
+</script>
+
             
 </body>
 </html>
