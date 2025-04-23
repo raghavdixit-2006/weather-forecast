@@ -353,3 +353,38 @@
   font-size: 12px;
   color: #999;
 }
+
+.high-priority .alert-icon {
+  background-color: var(--primary);
+}
+
+.medium-priority .alert-icon {
+  background-color: var(--accent);
+}
+
+.alert-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.alert-time {
+  font-size: 12px;
+  color: #999;
+}
+
+.alert-priority {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.high-priority .alert-priority {
+  background-color: #ffeded;
+  color: var(--primary);
+}
+
+.medium-priority .alert-priority {
+  background-color: #fff3ed;
+  color: var(--accent);
+}
