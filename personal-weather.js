@@ -504,3 +504,96 @@ document.addEventListener('DOMContentLoaded', function() {
             month: 'long', 
             day: 'numeric' 
         });
+        
+        // Update current weather
+        const temp = userSettings.unit === 'celsius' 
+            ? Math.round(current.main.temp) 
+            : Math.round((current.main.temp * 9/5) + 32);
+        const feelsLikeTemp = userSettings.unit === 'celsius'
+            ? Math.round(current.main.feels_like)
+            : Math.round((current.main.feels_like * 9/5) + 32);
+        
+        currentTemp.textContent = `${temp}°${userSettings.unit === 'celsius' ? 'C' : 'F'}`;
+        weatherDescription.textContent = current.weather[0].description;
+        feelsLike.textContent = `${feelsLikeTemp}°${userSettings.unit === 'celsius' ? 'C' : 'F'}`;
+        
+        // Update weather icon
+        const weatherIconCode = current.weather[0].icon;
+        weatherIcon.src = `https://openweathermap.org/img/wn/${weatherIconCode}@2x.png`;
+        weatherIcon.alt = current.weather[0].description;
+        
+        // Update additional weather details
+        humidity.textContent = `${current.main.humidity}%`;
+        
+        // Convert wind speed based on unit preference
+        const windSpeedValue = userSettings.unit === 'celsius' 
+            ? (current.wind.speed * 3.6).toFixed(1)  // Convert m/s to km/h
+            : (current.wind.speed * 2.237).toFixed(1); // Convert m/s to mph
+        const speedUnit = userSettings.unit === 'celsius' ? 'km/h' : 'mph';
+        windSpeed.textContent = `${windSpeedValue} ${speedUnit}`;
+        
+        pressure.textContent = `${current.main.pressure} hPa`;
+        
+        // Convert visibility to km or miles
+        const visibilityValue = userSettings.unit === 'celsius'
+            ? (current.visibility / 1000).toFixed(1)  // Convert meters to km
+            : (current.visibility / 1609.34).toFixed(1); // Convert meters to miles
+        const visUnit = userSettings.unit === 'celsius' ? 'km' : 'mi';
+        visibility.textContent = `${visibilityValue} ${visUnit}`;
+        
+        // Update UV Index if available
+        if (current.uvi !== undefined) {
+            const uvIndex = Math.round(current.uvi);
+            document.getElementById('uv-index').textContent = uvIndex;
+            
+            // Add UV Index description based on the value
+            let uvDescription = '';
+            if (uvIndex <= 2) {
+                uvDescription = 'Low';
+            } else if (uvIndex <= 5) {
+                uvDescription = 'Moderate';
+            } else if (uvIndex <= 7) {
+                uvDescription = 'High';
+            } else if (uvIndex <= 10) {
+                uvDescription = 'Very High';
+            } else {
+                uvDescription = 'Extreme';
+            }
+            document.getElementById('uv-index').title = uvDescription;
+        } else {
+            document.getElementById('uv-index').textContent = '--';
+            document.getElementById('uv-index').title = 'UV Index not available';
+        }
+        
+        // Update 5-day forecast
+        const forecastContainer = document.getElementById('forecast-container');
+        forecastContainer.innerHTML = '';
+        
+        console.log('Updating forecast display with:', forecast.daily);
+        
+        if (forecast.daily && forecast.daily.length > 0) {
+            forecast.daily.forEach(day => {
+                const forecastItem = document.createElement('div');
+                forecastItem.className = 'forecast-item';
+                
+                const date = new Date(day.dt * 1000);
+                const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
+                
+                const temp = userSettings.unit === 'celsius'
+                    ? Math.round(day.temp.day)
+                    : Math.round((day.temp.day * 9/5) + 32);
+                
+                forecastItem.innerHTML = `
+                    <p class="day">${dayName}</p>
+                    <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="${day.weather[0].description}">
+                    <p class="temp">${temp}°${userSettings.unit === 'celsius' ? 'C' : 'F'}</p>
+                    <p class="description">${day.weather[0].description}</p>
+                `;
+                
+                forecastContainer.appendChild(forecastItem);
+            });
+        } else {
+            console.error('No daily forecast data available');
+            forecastContainer.innerHTML = '<p>No forecast data available</p>';
+        }
+        
