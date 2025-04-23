@@ -37,3 +37,12 @@ async function getIPInfo(){
     speed.innerHTML = `${data.wind.speed} m/s`;
     gndlev.innerHTML = `${data.main.grnd_level} hPa`;
     Visibility.innerHTML = `${data.visibility/1000} Km`;
+    Country.innerHTML = data.sys.country;
+    weatherimage.src = `images/${data.weather[0].main}.svg`;
+    temperature.innerHTML = `${data.main.temp}°C`
+    name.innerHTML = info.city;
+    state.innerHTML = info.region;
+    country.innerHTML = info.country;
+    lat.innerHTML = info.loc.split(",")[0];
+    lon.innerHTML = info.loc.split(",")[1];
+}
