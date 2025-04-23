@@ -187,3 +187,99 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('username').textContent = username;
         }
     }
+    
+    // Save user settings to localStorage
+    function saveUserSettings() {
+        userSettings.unit = unitToggle.value;
+        userSettings.theme = themeToggle.value;
+        userSettings.displayOptions = {
+            humidity: document.getElementById('show-humidity').checked,
+            wind: document.getElementById('show-wind').checked,
+            pressure: document.getElementById('show-pressure').checked,
+            visibility: document.getElementById('show-visibility').checked
+        };
+        
+        localStorage.setItem('weatherSettings', JSON.stringify(userSettings));
+        
+        // Apply settings immediately
+        applyTheme(userSettings.theme);
+        
+        // Refresh current weather display with new settings
+        if (currentWeatherData) {
+            updateWeatherDisplay(currentWeatherData);
+        }
+        
+        // Show success message
+        showNotification('Settings saved successfully');
+    }
+    
+    // Apply theme settings
+    function applyTheme(theme) {
+        const root = document.documentElement;
+        const body = document.body;
+        
+        // Remove all theme classes first
+        body.classList.remove('light-theme', 'dark-theme', 'auto-theme');
+        
+        if (theme === 'dark') {
+            root.style.setProperty('--bg-color', '#1a1a1a');
+            root.style.setProperty('--text-color', '#f0f0f0');
+            root.style.setProperty('--card-bg', '#2a2a2a');
+            root.style.setProperty('--border-color', '#404040');
+            root.style.setProperty('--hover-color', '#333333');
+            body.classList.add('dark-theme');
+        } else if (theme === 'light') {
+            root.style.setProperty('--bg-color', '#f5f7fa');
+            root.style.setProperty('--text-color', '#333333');
+            root.style.setProperty('--card-bg', '#ffffff');
+            root.style.setProperty('--border-color', '#e0e0e0');
+            root.style.setProperty('--hover-color', '#f0f0f0');
+            body.classList.add('light-theme');
+        } else if (theme === 'auto') {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyTheme(prefersDark ? 'dark' : 'light');
+            body.classList.add('auto-theme');
+            
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (theme === 'auto') {
+                    applyTheme(e.matches ? 'dark' : 'light');
+                }
+            });
+        }
+    }
+    
+    // Handle search form submission
+    function handleSearch() {
+        const location = searchInput.value.trim();
+        if (location) {
+            getWeatherByLocation(location);
+            searchInput.value = '';
+        }
+    }
+    
+    // Get weather by city name
+    function getWeatherByLocation(location) {
+        // First get coordinates for the location
+        fetch(`${GEO_URL}/direct?q=${encodeURIComponent(location)}&limit=1&appid=${API_KEY}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Location not found');
+                }
+                return response.json();
+            })
+            .then(geoData => {
+                if (geoData && geoData.length > 0) {
+                    const { lat, lon, name, country, state } = geoData[0];
+                    // Now get weather data using coordinates
+                    return fetchWeatherData(lat, lon, name, country, state);
+                } else {
+                    throw new Error('Location not found');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
+                showNotification('Failed to fetch weather data. Please try again later.');
+            });
+    }
+    
