@@ -92,8 +92,69 @@
                         <button id="save-settings" class="primary-btn">Save Settings</button>
                 </div>
             </div>
+
+            <div class="main-content">
+                <div class="search-bar flexbox">
+                    <input type="text" id="location-search" placeholder="Search for a location...">
+                    <button id="search-btn"><i class="bi bi-search"></i></button>
+                    <button id="current-location"><i class="bi bi-geo-alt"></i></button>
+                </div>
+                
+                <div class="current-weather">
+                    <div class="weather-header flexbox">
+                        <div>
+                            <h2 id="current-city">Loading...</h2>
+                            <p id="current-date">Today</p>
+                        </div>
+                        <button id="add-to-favorites" class="icon-btn"><i class="bi bi-star"></i></button>
+                    </div>
+                    
+                    <div class="weather-body flexbox">
+                        <div class="temperature-section">
+                            <img id="weather-icon" src="images/clear.svg" alt="Weather">
+                            <h1 id="current-temp">--°C</h1>
+                            <p id="weather-description">Clear Sky</p>
+                        </div>
+                        
+                        <div class="details-section">
+                            <div class="detail-item">
+                                <img src="images/thermometer.png" alt="">
+                                <span>Feels Like</span>
+                                <p id="feels-like">--°C</p>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/humidity.png" alt="">
+                                <span>Humidity</span>
+                                <p id="humidity">--%</p>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/windy.png" alt="">
+                                <span>Wind Speed</span>
+                                <p id="wind-speed">-- km/h</p>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/airpressure.png" alt="">
+                                <span>Pressure</span>
+                                <p id="pressure">-- hPa</p>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/visible.png" alt="">
+                                <span>Visibility</span>
+                                <p id="visibility">-- km</p>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/uv.png" alt="">
+                                <span>UV Index</span>
+                                <p id="uv-index">--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+
     <script src="personal-weather.js"></script>
 </body>
 </html>
