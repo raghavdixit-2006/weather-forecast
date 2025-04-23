@@ -283,3 +283,224 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
     
+    // Get current location using geolocation API
+    function getCurrentLocationWeather() {
+        if (navigator.geolocation) {
+            currentCity.textContent = 'Detecting location...';
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    // Get weather data using coordinates
+                    fetch(`${BASE_URL}/weather?lat=${latitude}&lon=${longitude}&units=${userSettings.unit === 'celsius' ? 'metric' : 'imperial'}&appid=${API_KEY}`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Weather data not available');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            // Get forecast data
+                            return fetch(`${BASE_URL}/forecast?lat=${latitude}&lon=${longitude}&units=${userSettings.unit === 'celsius' ? 'metric' : 'imperial'}&appid=${API_KEY}`)
+                                .then(response => response.json())
+                                .then(forecastData => {
+                                    // Get air quality data
+                                    return fetch(`${BASE_URL}/air_pollution?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`)
+                                        .then(response => response.json())
+                                        .then(aqiData => {
+                                            // Combine all data
+                                            const combinedData = {
+                                                current: data,
+                                                forecast: forecastData,
+                                                airQuality: aqiData,
+                                                location: {
+                                                    name: data.name,
+                                                    country: data.sys.country,
+                                                    state: data.sys.state || ''
+                                                }
+                                            };
+                                            updateWeatherDisplay(combinedData);
+                                        });
+                                });
+                        })
+                        .catch(error => {
+                            console.error('Error fetching weather data:', error);
+                            showNotification('Failed to fetch weather data. Please try again later.');
+                        });
+                },
+                (error) => {
+                    console.error('Geolocation error:', error);
+                    showNotification('Location access denied. Using default location (London).');
+                    // Use London as default location
+                    getWeatherByLocation('London');
+                }
+            );
+        } else {
+            showNotification('Geolocation is not supported by your browser. Using default location (London).');
+            getWeatherByLocation('London');
+        }
+    }
+    
+    // Function to use mock data
+    function useMockData() {
+        const mockLocation = {
+            name: 'Test City',
+            country: 'Test Country',
+            state: 'Test State'
+        };
+        
+        const combinedData = {
+            current: mockWeatherData.current,
+            forecast: mockWeatherData.forecast,
+            airQuality: mockWeatherData.airQuality,
+            location: mockLocation
+        };
+        
+        currentWeatherData = combinedData;
+        updateWeatherDisplay(combinedData);
+    }
+    
+    // Modified fetchWeatherData function
+    function fetchWeatherData(lat, lon, cityName, country, state) {
+        // If API key is not set, use mock data
+        if (API_KEY === 'YOUR_API_KEY_HERE') {
+            console.log('Using mock data since API key is not set');
+            useMockData();
+            return;
+        }
+        
+        // Show loading state
+        currentCity.textContent = 'Loading...';
+        
+        // Weather data endpoint with units based on user preference
+        const units = userSettings.unit === 'celsius' ? 'metric' : 'imperial';
+        
+        Promise.all([
+            // Current weather
+            fetch(`${BASE_URL}/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${API_KEY}`),
+            // 5-day forecast (3-hour intervals)
+            fetch(`${BASE_URL}/forecast?lat=${lat}&lon=${lon}&units=${units}&appid=${API_KEY}`),
+            // Air quality
+            fetch(`${BASE_URL}/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
+        ])
+        .then(async ([currentRes, forecastRes, aqiRes]) => {
+            if (!currentRes.ok || !forecastRes.ok || !aqiRes.ok) {
+                throw new Error('Failed to fetch weather data');
+            }
+            
+            const currentData = await currentRes.json();
+            const forecastData = await forecastRes.json();
+            const aqiData = await aqiRes.json();
+            
+            console.log('Raw forecast data:', forecastData);
+            
+            // Process forecast data
+            const dailyForecasts = [];
+            const hourlyForecasts = [];
+            
+            // Get the first 5 days (one entry per day at noon)
+            const today = new Date();
+            today.setHours(12, 0, 0, 0);
+            
+            // Group forecast data by day
+            const forecastsByDay = {};
+            forecastData.list.forEach(item => {
+                const date = new Date(item.dt * 1000);
+                const dayKey = date.toLocaleDateString();
+                
+                if (!forecastsByDay[dayKey]) {
+                    forecastsByDay[dayKey] = [];
+                }
+                forecastsByDay[dayKey].push(item);
+            });
+            
+            // Get one forecast per day (at noon if available, otherwise closest to noon)
+            Object.keys(forecastsByDay).slice(0, 5).forEach(dayKey => {
+                const dayForecasts = forecastsByDay[dayKey];
+                const noonForecast = dayForecasts.find(item => {
+                    const hour = new Date(item.dt * 1000).getHours();
+                    return hour >= 12 && hour <= 14;
+                }) || dayForecasts[Math.floor(dayForecasts.length / 2)];
+                
+                if (noonForecast) {
+                    dailyForecasts.push({
+                        dt: noonForecast.dt,
+                        temp: { day: noonForecast.main.temp },
+                        weather: noonForecast.weather
+                    });
+                }
+            });
+            
+            // Get the next 24 hours
+            const now = new Date();
+            const next24Hours = forecastData.list
+                .filter(item => {
+                    const itemDate = new Date(item.dt * 1000);
+                    return itemDate > now && itemDate <= new Date(now.getTime() + 24 * 60 * 60 * 1000);
+                })
+                .slice(0, 24);
+            
+            next24Hours.forEach(hour => {
+                hourlyForecasts.push({
+                    dt: hour.dt,
+                    temp: hour.main.temp,
+                    weather: hour.weather
+                });
+            });
+            
+            console.log('Processed daily forecasts:', dailyForecasts);
+            console.log('Processed hourly forecasts:', hourlyForecasts);
+            
+            // Combine all data
+            const combinedData = {
+                current: currentData,
+                forecast: {
+                    daily: dailyForecasts,
+                    hourly: hourlyForecasts
+                },
+                airQuality: aqiData,
+                location: {
+                    name: cityName,
+                    country: country,
+                    state: state
+                }
+            };
+            
+            // Store current data in the app state
+            currentWeatherData = combinedData;
+            
+            // Update the UI
+            updateWeatherDisplay(combinedData);
+        })
+        .catch(error => {
+            console.error('Error fetching weather data:', error);
+            showNotification('Failed to fetch weather data. Please try again later.');
+            currentCity.textContent = 'Error loading weather';
+        });
+    }
+    
+    // Update the weather display with fetched data
+    function updateWeatherDisplay(data) {
+        if (!data || !data.current || !data.forecast) {
+            console.error('Invalid weather data:', data);
+            return;
+        }
+
+        const { current, forecast, location } = data;
+        
+        // Update location
+        currentCity.textContent = location.name;
+        if (location.state) {
+            currentCity.textContent += `, ${location.state}`;
+        }
+        if (location.country) {
+            currentCity.textContent += `, ${location.country}`;
+        }
+        
+        // Update current date
+        const now = new Date();
+        currentDate.textContent = now.toLocaleDateString('en-US', { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
