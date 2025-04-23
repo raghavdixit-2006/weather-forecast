@@ -150,10 +150,39 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="forecast">
+                    <h3>5-Day Forecast</h3>
+                    <div class="forecast-items" id="forecast-container">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+                
+                <div class="weather-widgets">
+                    <h3>Widgets</h3>
+                    <div class="widget-container flexbox">
+                        <div class="widget" id="hourly-widget">
+                            <h4>24-Hour Forecast</h4>
+                            <div class="hourly-scroll" id="hourly-container">
+                                <!-- Dynamically populated -->
+                            </div>
+                        </div>
+                        
+                        <div class="widget" id="air-quality-widget">
+                            <h4>Air Quality</h4>
+                            <div class="air-quality-meter">
+                                <div class="meter-scale">
+                                    <div class="meter-fill" id="aqi-meter"></div>
+                                </div>
+                                <p>Air Quality Index: <span id="aqi-value">--</span></p>
+                                <p id="aqi-description">Loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
 
     <script src="personal-weather.js"></script>
 </body>
