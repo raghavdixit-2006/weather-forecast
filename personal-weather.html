@@ -92,8 +92,152 @@
                         <button id="save-settings" class="primary-btn">Save Settings</button>
                 </div>
             </div>
+
+            <div class="main-content">
+                <div class="search-bar flexbox">
+                    <input type="text" id="location-search" placeholder="Search for a location...">
+                    <button id="search-btn"><i class="bi bi-search"></i></button>
+                    <button id="current-location"><i class="bi bi-geo-alt"></i></button>
+                </div>
+                
+                <div class="current-weather">
+                    <div class="weather-header flexbox">
+                        <div>
+                            <h2 id="current-city">Loading...</h2>
+                            <p id="current-date">Today</p>
+                        </div>
+                        <button id="add-to-favorites" class="icon-btn"><i class="bi bi-star"></i></button>
+                    </div>
+                    
+                    <div class="weather-body flexbox">
+                        <div class="temperature-section">
+                            <img id="weather-icon" src="images/clear.svg" alt="Weather">
+                            <h1 id="current-temp">--°C</h1>
+                            <p id="weather-description">Clear Sky</p>
+                        </div>
+                        
+                        <div class="details-section">
+                            <div class="detail-item">
+                                <img src="images/thermometer.png" alt="">
+                                <span>Feels Like</span>
+                                <p id="feels-like">--°C</p>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/humidity.png" alt="">
+                                <span>Humidity</span>
+                                <p id="humidity">--%</p>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/windy.png" alt="">
+                                <span>Wind Speed</span>
+                                <p id="wind-speed">-- km/h</p>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/airpressure.png" alt="">
+                                <span>Pressure</span>
+                                <p id="pressure">-- hPa</p>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/visible.png" alt="">
+                                <span>Visibility</span>
+                                <p id="visibility">-- km</p>
+                            </div>
+                            <div class="detail-item">
+                                <img src="images/uv.png" alt="">
+                                <span>UV Index</span>
+                                <p id="uv-index">--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="forecast">
+                    <h3>5-Day Forecast</h3>
+                    <div class="forecast-items" id="forecast-container">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+                
+                <div class="weather-widgets">
+                    <h3>Widgets</h3>
+                    <div class="widget-container flexbox">
+                        <div class="widget" id="hourly-widget">
+                            <h4>24-Hour Forecast</h4>
+                            <div class="hourly-scroll" id="hourly-container">
+                                <!-- Dynamically populated -->
+                            </div>
+                        </div>
+                        
+                        <div class="widget" id="air-quality-widget">
+                            <h4>Air Quality</h4>
+                            <div class="air-quality-meter">
+                                <div class="meter-scale">
+                                    <div class="meter-fill" id="aqi-meter"></div>
+                                </div>
+                                <p>Air Quality Index: <span id="aqi-value">--</span></p>
+                                <p id="aqi-description">Loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <footer class="flexbox" style="justify-content: space-between; flex-wrap: wrap;">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <div class="menu">
+            <div class="logo">
+                <img src="images/logo.png">
+                <h1>WEATHER<br>FORECAST</h1>
+            </div>
+            <div class="icons">
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-twitter"></i>
+                <i class="bi bi-linkedin"></i>
+            </div>
+        </div>
+
+        <div class="menub">
+            <ul class="flexbox">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">WEATHER UPDATES</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">LOGIN</a></li>
+            </ul>
+        </div>
+
+        <div class="menub">
+            <ul class="flexbox" style="justify-content: center; align-items: flex-start;">
+                <li><a href="#">Mobile - 97807-XXXX</a></li>
+                <li><a href="#">Email - weatherapp@gmail.com</a></li>
+                <li><a href="#">address-india</a></li>
+            </ul>
+        </div>
+
+        <div class="menuc">
+            <h1>Signup for the<br>latest updates</h1>
+            <form action="">
+                <input type="text" placeholder="Enter Your Email"><br>
+                <input type="button" value="Send">
+            </form>
+        </div>
+        <div class="hr flexbox">
+            <h4>All rights reserved</h4>
+            <ul class="flexbox">
+                <li><a href="">Terms</a></li>
+                <li><a href="">Privacy</a></li>
+                <li><a href="">Compensation</a></li>
+            </ul>
+        </div>
+    </footer>
+
     <script src="personal-weather.js"></script>
 </body>
 </html>
