@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #cbd5e1, #e9d5ff);
@@ -7,7 +7,7 @@ body {
     align-items: center;
     height: 100vh;
     padding: 1rem;
-  }
+  } */
   .card {
     background: white;
     border-radius: 1rem;
@@ -15,6 +15,10 @@ body {
     max-width: 400px;
     width: 100%;
     padding: 2rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
   }
   .card h2 {
     text-align: center;
