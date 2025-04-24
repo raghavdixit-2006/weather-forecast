@@ -726,4 +726,130 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+    
+    // Add location to favorites from input
+    function addLocationToFavorites() {
+        const location = addLocationInput.value.trim();
+        if (location) {
+            // Get coordinates for the location
+            fetch(`${GEO_URL}/direct?q=${encodeURIComponent(location)}&limit=1&appid=${API_KEY}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        const { lat, lon, name, country, state } = data[0];
+                        const locationName = state 
+                            ? `${name}, ${state}` 
+                            : `${name}, ${country}`;
+                        
+                        // Check if location already exists
+                        if (!favorites.some(fav => fav.name === locationName)) {
+                            favorites.push({
+                                name: locationName,
+                                lat,
+                                lon
+                            });
+                            
+                            // Save to localStorage
+                            localStorage.setItem('weatherFavorites', JSON.stringify(favorites));
+                            
+                            // Update favorites list
+                            renderFavorites();
+                            
+                            // Clear input
+                            addLocationInput.value = '';
+                            
+                            showNotification(`Added ${locationName} to favorites`);
+                        } else {
+                            showNotification(`${locationName} is already in your favorites`);
+                        }
+                    } else {
+                        showNotification('Location not found. Please try again with a different name.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching location data:', error);
+                    showNotification('Failed to fetch location data. Please try again later.');
+                });
+        }
+    }
+    
+    // Render favorites list
+    function renderFavorites() {
+        favoriteLocationsContainer.innerHTML = '';
         
+        if (favorites.length === 0) {
+            const emptyMessage = document.createElement('p');
+            emptyMessage.textContent = 'No favorite locations yet.';
+            emptyMessage.style.textAlign = 'center';
+            emptyMessage.style.color = '#666';
+            favoriteLocationsContainer.appendChild(emptyMessage);
+            return;
+        }
+        
+        favorites.forEach(favorite => {
+            const favoriteItem = document.createElement('div');
+            favoriteItem.className = 'favorite-item';
+            
+            const locationText = document.createElement('p');
+            locationText.textContent = favorite.name;
+            
+            const removeButton = document.createElement('button');
+            removeButton.innerHTML = '<i class="bi bi-x"></i>';
+            removeButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                removeFavorite(favorite.name);
+            });
+            
+            favoriteItem.appendChild(locationText);
+            favoriteItem.appendChild(removeButton);
+            
+            // Add click event to load this location's weather
+            favoriteItem.addEventListener('click', () => {
+                fetchWeatherData(
+                    favorite.lat, 
+                    favorite.lon, 
+                    favorite.name.split(',')[0], 
+                    favorite.name.split(',')[1].trim(), 
+                    ''
+                );
+            });
+            
+            favoriteLocationsContainer.appendChild(favoriteItem);
+        });
+    }
+    
+    // Remove a favorite location
+    function removeFavorite(name) {
+        favorites = favorites.filter(favorite => favorite.name !== name);
+        localStorage.setItem('weatherFavorites', JSON.stringify(favorites));
+        renderFavorites();
+        showNotification(`Removed ${name} from favorites`);
+    }
+    
+    // Show notification message
+    function showNotification(message) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = message;
+        
+        // Add notification to the DOM
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+    
+    // Initialize the app
+    initApp();
+});        
