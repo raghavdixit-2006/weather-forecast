@@ -47,6 +47,9 @@ async function getIPInfo(){
     lon.innerHTML = info.loc.split(",")[1];
 }
 
+window.onload = getIPInfo();
+
+
 const cities = ["Delhi","Mumbai","Chennai","Chandigarh","Banglore","Hyderabad","Kolkata","Ahmedabad","Surat","Jaipur","Lucknow","Kanpur","Indore","Nagpur","Patna","Agra","Meerut","Varanasi","Haridwar","Madurai","Jamshedpur"];
 const apiKey = "56c931f2347e26bdffcf671b5f284d4f";
 
@@ -58,5 +61,14 @@ cities.forEach(city => {
         .then(data => {
             // Create a card for each city
             const weatherCard = document.createElement("div");
-        }
-    }
+
+            // Populate the card with city weather data
+            weatherCard.innerHTML = `
+                <p>${city}</p>
+                <div class="info"><img src=images/${data.weather[0].main}.svg alt=""><p>${Math.round(data.main.temp)}°C</p></div>
+            `;
+            console.log(data.weather[0].main);
+
+            // Append the card to the container
+            weatherContainer.appendChild(weatherCard);
+        })
