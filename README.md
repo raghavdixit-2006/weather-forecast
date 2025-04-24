@@ -5,15 +5,16 @@ Our website is a simple and user-friendly weather forecast website that provides
 
 ## ⚡ Features
 - 🌡️ Current weather conditions
-- 📅 7-day weather forecast
+- 📅 5-day weather forecast
 - 💨 Temperature, humidity, wind speed, and more
 - 🔍 Search functionality by city name
 - 📱 Responsive design for mobile and desktop
 
-## 🛠️ Technologies We Will Use
-- ⚛️ JavaScript (React.js or Vanilla JS)
-- ☁️ Weather API (OpenWeatherMap or similar)
-- 🎨 CSS (Bootstrap or Tailwind CSS)
+## 🛠️ Technologies We Have Used
+- 🧱 HTML – The structure of our web page
+- ⚛️ JavaScript – For dynamic functionality
+- ☁️ Weather API (OpenWeatherMap) – To fetch live weather data
+- 🎨 CSS (Bootstrap) – For beautiful, responsive design
 
 ## 🚀 Development Plan
 - 📌 Design the UI and layout.
@@ -21,19 +22,17 @@ Our website is a simple and user-friendly weather forecast website that provides
 - 🎨 Style the website for a modern look.
 - 🛠️ Test and optimize performance.
 
-## 📝 License
-This project is open-source and available under the MIT License.
-
-## 🤝 Contributing
-### 🤝 Contributers
-- Rahul Gheek
-  - Created the Home page
-- Risav Singh
+## 🤝 Contributers
+- Raghav Dixit (Manager)
+  - Created admin page and tested the code
+- Rahul Gheek (Leading Devloper)
+  - Created the Home page and check the quality of the code
+- Risav Singh (Developer)
   - Created the Weather Update Page
-- Samar Gupta
-  - Created the Login and Signup Pages
-- Sameer Aggarwal
-  - Created the About Page
+- Samar Gupta (Developer)
+  - Created the Login/Signup and Contact us page
+- Sameer Aggarwal (Developer)
+  - Created the About and Personal weather Page
 
 To contribute, simply fork the repository, make your changes, and open a pull request. We appreciate every contribution!
 
