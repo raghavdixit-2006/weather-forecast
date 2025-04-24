@@ -597,3 +597,133 @@ document.addEventListener('DOMContentLoaded', function() {
             forecastContainer.innerHTML = '<p>No forecast data available</p>';
         }
         
+        // Update hourly forecast
+        const hourlyContainer = document.getElementById('hourly-container');
+        hourlyContainer.innerHTML = '';
+        
+        console.log('Updating hourly display with:', forecast.hourly);
+        
+        if (forecast.hourly && forecast.hourly.length > 0) {
+            forecast.hourly.forEach(hour => {
+                const hourlyItem = document.createElement('div');
+                hourlyItem.className = 'hourly-item';
+                
+                const date = new Date(hour.dt * 1000);
+                const time = date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                
+                const temp = userSettings.unit === 'celsius'
+                    ? Math.round(hour.temp)
+                    : Math.round((hour.temp * 9/5) + 32);
+                
+                hourlyItem.innerHTML = `
+                    <p class="time">${time}</p>
+                    <img src="https://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png" alt="${hour.weather[0].description}">
+                    <p class="temp">${temp}°${userSettings.unit === 'celsius' ? 'C' : 'F'}</p>
+                `;
+                
+                hourlyContainer.appendChild(hourlyItem);
+            });
+        } else {
+            console.error('No hourly forecast data available');
+            hourlyContainer.innerHTML = '<p>No hourly forecast data available</p>';
+        }
+        
+        // Update air quality if available
+        if (data.airQuality && data.airQuality.list && data.airQuality.list[0]) {
+            const aqi = data.airQuality.list[0].main.aqi;
+            aqiValue.textContent = aqi;
+            
+            // AQI descriptions based on EPA standards
+            const aqiDescriptions = ['Good', 'Moderate', 'Unhealthy for Sensitive Groups', 'Unhealthy', 'Very Unhealthy', 'Hazardous'];
+            aqiDescription.textContent = aqiDescriptions[aqi - 1] || 'Unknown';
+            
+            // Update meter fill width based on AQI (1-6)
+            const fillPercent = (aqi / 6) * 100;
+            aqiMeter.style.width = `${fillPercent}%`;
+        }
+    }
+    
+    // Get weather icon URL based on icon code
+    function getWeatherIconUrl(iconCode) {
+        // Check if we have a local icon first
+        const iconMapping = {
+            '01d': 'clear.svg',
+            '01n': 'clear.svg',
+            '02d': 'clouds.svg',
+            '02n': 'clouds.svg',
+            '03d': 'clouds.svg',
+            '03n': 'clouds.svg',
+            '04d': 'clouds.svg',
+            '04n': 'clouds.svg',
+            '09d': 'rain.svg',
+            '09n': 'rain.svg',
+            '10d': 'rain.svg',
+            '10n': 'rain.svg',
+            '11d': 'storm.svg',
+            '11n': 'storm.svg',
+            '13d': 'snow.svg',
+            '13n': 'snow.svg',
+            '50d': 'mist.svg',
+            '50n': 'mist.svg'
+        };
+        
+        // If we have a local icon, use it, otherwise fall back to OpenWeatherMap
+        if (iconMapping[iconCode]) {
+            return 'images/' + iconMapping[iconCode];
+        } else {
+            return 'https://openweathermap.org/img/wn/' + iconCode + '@2x.png';
+        }
+    }
+    
+    // Show/hide sections based on user preferences
+    function updateDisplayBasedOnPreferences() {
+        const { displayOptions } = userSettings;
+        
+        // Get all detail items
+        const detailItems = document.querySelectorAll('.detail-item');
+        
+        // Show/hide based on preferences
+        detailItems.forEach(item => {
+            const itemContent = item.textContent.toLowerCase();
+            
+            if (itemContent.includes('humidity')) {
+                item.style.display = displayOptions.humidity ? 'flex' : 'none';
+            } else if (itemContent.includes('wind')) {
+                item.style.display = displayOptions.wind ? 'flex' : 'none';
+            } else if (itemContent.includes('pressure')) {
+                item.style.display = displayOptions.pressure ? 'flex' : 'none';
+            } else if (itemContent.includes('visibility')) {
+                item.style.display = displayOptions.visibility ? 'flex' : 'none';
+            }
+        });
+    }
+    
+    // Add current location to favorites
+    function addCurrentToFavorites() {
+        if (currentWeatherData) {
+            const { location } = currentWeatherData;
+            const locationName = location.state 
+                ? `${location.name}, ${location.state}` 
+                : `${location.name}, ${location.country}`;
+            
+            // Check if location already exists in favorites
+            if (!favorites.some(fav => fav.name === locationName)) {
+                favorites.push({
+                    name: locationName,
+                    lat: currentWeatherData.current.coord.lat,
+                    lon: currentWeatherData.current.coord.lon
+                });
+                
+                // Save to localStorage
+                localStorage.setItem('weatherFavorites', JSON.stringify(favorites));
+                
+                // Update favorites list
+                renderFavorites();
+                
+                showNotification(`Added ${locationName} to favorites`);
+            } else {
+                showNotification(`${locationName} is already in your favorites`);
+            }
+        }
+    }
+        
