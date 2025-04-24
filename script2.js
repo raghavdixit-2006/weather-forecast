@@ -72,3 +72,12 @@ cities.forEach(city => {
             // Append the card to the container
             weatherContainer.appendChild(weatherCard);
         })
+        .catch(error => {
+            console.error(`Error fetching data for ${city}:, error`);
+        });
+});
+
+
+var citynamecard = document.querySelectorAll(".cities div")
+
+citynamecard.forEach()        
