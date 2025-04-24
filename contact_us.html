@@ -35,6 +35,7 @@
             <p>Get in touch with our weather experts</p>
         </div>
     </div>
+
     <!-- Contact Info Cards -->
     <div class="contact-info-container">
         <div class="contact-info-card">
@@ -45,6 +46,7 @@
             <p>123 Weather Tower, Climate Street</p>
             <p>New Delhi, 110001, India</p>
         </div>
+
         <div class="contact-info-card">
             <div class="contact-icon">
                 <i class="fas fa-phone-alt"></i>
@@ -53,6 +55,7 @@
             <p>+91 123 456 7890</p>
             <p>+91 987 654 3210</p>
         </div>
+
         <div class="contact-info-card">
             <div class="contact-icon">
                 <i class="fas fa-envelope"></i>
@@ -61,6 +64,7 @@
             <p>info@weatherforecast.com</p>
             <p>support@weatherforecast.com</p>
         </div>
+
         <div class="contact-info-card">
             <div class="contact-icon">
                 <i class="fas fa-clock"></i>
@@ -70,6 +74,7 @@
             <p>Saturday: 10:00 AM - 4:00 PM</p>
         </div>
     </div>
+
     <!-- Contact Form and Map Section -->
     <div class="contact-main-container">
         <div class="contact-form-container">
@@ -109,6 +114,7 @@
                 </div>
             </form>
         </div>
+        
         <div class="contact-map-container">
             <h2>Find Us On Map</h2>
             <div class="map-responsive">
@@ -118,6 +124,7 @@
             </div>
         </div>
     </div>
+
     <!-- Address and Branch Offices Section -->
     <div class="branch-offices-section">
         <h2>Our Branch Offices</h2>
@@ -134,6 +141,7 @@
                     <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
                 </div>
             </div>
+            
             <div class="office-card">
                 <div class="office-header">
                     <i class="fas fa-building"></i>
@@ -146,6 +154,7 @@
                     <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
                 </div>
             </div>
+            
             <div class="office-card">
                 <div class="office-header">
                     <i class="fas fa-building"></i>
@@ -158,6 +167,7 @@
                     <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</p>
                 </div>
             </div>
+            
             <div class="office-card">
                 <div class="office-header">
                     <i class="fas fa-building"></i>
@@ -172,5 +182,87 @@
             </div>
         </div>
     </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How can I get weather updates for my location?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can get weather updates for your location by visiting our Weather Updates page and entering your city name or by sharing your location. We provide real-time updates and forecasts for your area.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you provide international weather forecasts?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we provide weather forecasts for most international locations. Our global weather data is updated regularly to ensure accurate predictions for cities around the world.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How accurate are your weather predictions?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our weather predictions have an accuracy rate of approximately 90%. We use advanced meteorological models and real-time data from multiple sources to provide the most accurate forecasts possible.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How can I report an issue with the website?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>If you encounter any issues with our website, please use the contact form above to report the problem. Include details about the issue, your device, and browser to help us resolve it quickly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with the latest weather news and forecasts delivered straight to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Function for mobile menu toggle
+        function menubar() {
+            var x = document.querySelector("nav ul");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+
+        // FAQ toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    faqItem.classList.toggle('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
