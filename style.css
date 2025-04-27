@@ -562,7 +562,126 @@ button.btn:hover{
         gap:.3vw;
     }
 }
+@media (max-width:1020px){
+    .weather-section{
+        height: 190vh;
+    }
+    .template{
+        height: 158vh;
+        overflow: visible;
+    }
+    .box{
+        top:0;
+        width: 100%;
+        box-shadow: 0px 10px 15px black;
+    }
+    .fourdays{
+        top: 0;
+        margin-top: 70vh;
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding-top: 100px;
+        padding-bottom: 20px;
+    }
+    .forecast{
+        gap:4vw;
+    }
+}
 
+@media (max-width:800px) {
+    .template{
+        height: 178vh;
+    }
+    .box{
+        height: 60vh;
+    }
+    .fourdays{
+        margin-top: 50vh;
+    }
+    .fourdays .info{
+        grid-template-columns: 30vmax 30vmax;
+    }
+    .fourdays .info .detail{
+        width: 30vmax;
+    }
+    .forecast{
+        display: grid;
+        grid-template-columns: 20vmax 20vmax;
+    }
+    .weatherday p.day{
+        font-size: 20px;
+    }
+
+    .reviewpage{
+        height: 150vh;
+        flex-direction: column;
+    }
+    .addheading{
+        font-size: 3vw;
+        width: 80%;
+    }
+    .reviewbox{
+        width: 80%;
+    }
+    .reviewbox h2{
+        font-size: 6vw;
+    }
+    .addheading span{
+        font-size: 3vmax;
+    }
+}
+
+@media (max-width:400px) {
+    .container .weatherdetails{
+        display: grid;
+        grid-template-columns: 30vw 30vw;
+        margin-left: 0vmax;
+    }
+    .weatherdetails .detail{
+        width: 30vw;
+        height: auto;
+        padding-bottom: 20px;
+    }
+    .weatherdetails .detail img{
+        width: 10vw;
+        height: auto;
+    }
+    .weatherdetails .detail h1{
+        display: none;
+    }
+    .fourdays .info{
+        grid-template-columns: 15vmax 15vmax;
+        margin-left: 7.5vw;
+    }
+    .fourdays .info .detail{
+        width: 15vmax;
+    }
+    .forecast{
+        display: grid;
+        grid-template-columns: 14vmax 14vmax;
+    }
+    .about p{
+        font-size: 15px;;
+    }
+    .reviewpage{
+        height: 120vh;
+    }
+    .reviewpage p{
+        font-size: 2vmax;
+    }
+}
+
+@keyframes appear{
+    from{
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 /* ---------About---------*/
 

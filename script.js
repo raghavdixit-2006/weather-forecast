@@ -67,3 +67,51 @@ async function WeatherData(cityname){
 searchbtn.addEventListener("click", () => {
 	WeatherData(searchbox.value);
 });
+
+let temp1 = document.querySelector("#temp1");
+let humidity1 = document.querySelector("#humidity1");
+let speed1 = document.querySelector("#speed1");
+let pressure1 = document.querySelector("#pressure1");
+let temp2 = document.querySelector("#temp2");
+let humidity2 = document.querySelector("#humidity2");
+let speed2 = document.querySelector("#speed2");
+let pressure2 = document.querySelector("#pressure2");
+let temp3 = document.querySelector("#temp3");
+let humidity3 = document.querySelector("#humidity3");
+let speed3 = document.querySelector("#speed3");
+let pressure3 = document.querySelector("#pressure3");
+
+
+async function weather1(cityname){
+    const response = await fetch(apikey + cityname);
+	var data = await response.json();
+
+    temp1.innerHTML = `${Math.round(data.main.temp)}°C`;
+    humidity1.innerHTML = `${data.main.humidity}%`;
+    speed1.innerHTML = `${data.wind.speed}kmph`;
+    pressure1.innerHTML = `${data.main.pressure}hPa`;
+}
+
+async function weather2(cityname){
+    const response = await fetch(apikey + cityname);
+	var data = await response.json();
+
+    temp2.innerHTML = `${Math.round(data.main.temp)}°C`;
+    humidity2.innerHTML = `${data.main.humidity}%`;
+    speed2.innerHTML = `${data.wind.speed}kmph`;
+    pressure2.innerHTML = `${data.main.pressure}hPa`;
+}
+
+async function weather3(cityname){
+    const response = await fetch(apikey + cityname);
+	var data = await response.json();
+
+    temp3.innerHTML = `${Math.round(data.main.temp)}°C`;
+    humidity3.innerHTML = `${data.main.humidity}%`;
+    speed3.innerHTML = `${data.wind.speed}kmph`;
+    pressure3.innerHTML = `${data.main.pressure}hPa`;
+}
+
+window.onload = weather1("tokyo");
+window.onload = weather2("mumbai");
+window.onload = weather3("california");
